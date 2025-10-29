@@ -1,0 +1,264 @@
+/* ===== 🎨 HANGOVER COLOR PALETTE ===== */
+
+:root {
+  --ho-red: #D22B2B;        
+  --ho-red-hover: #A31F1F;
+  --ho-gold: #FFC300;       
+  --ho-dark: #1A1A1A;       
+  --ho-light: #F5F5F5;      
+}
+
+/* Custom Utility Class for Gold Text */
+.text-ho-gold {
+  color: var(--ho-gold) !important;
+}
+#navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem 2rem;
+  width: 95%;
+  max-width: 1400px;
+  transition: all 0.4s ease;
+}
+
+/* Navbar when scrolling (SNAPPED & ROUNDED RECTANGULAR) */
+#navbar.scrolled {
+  top: 0;
+  left: 0;
+  transform: none;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Brand text */
+#navbar .navbar-brand {
+  font-size: 1.7rem;
+  color: var(--ho-red);
+  letter-spacing: 2px;
+}
+
+/* Links (desktop) */
+#navbar .nav-link {
+  font-weight: 500;
+  color: #333;
+  padding: 0.5rem 1.2rem;
+  transition: color 0.3s ease;
+}
+
+#navbar .nav-link:hover {
+  color: var(--ho-red);
+}
+
+/* ===== Mobile Menu Overlay ===== */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+  z-index: 2000;
+}
+
+.mobile-nav-links a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s;
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+}
+
+.mobile-nav-links li {
+  margin: 1rem 0;
+}
+
+.mobile-nav-links a:hover {
+  color: var(--ho-red);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  #menuToggle {
+    display: none;
+  }
+}
+/* ===== Footer Styles ===== */
+#footer {
+  background-color: var(--ho-dark);
+  color: var(--ho-light);
+  padding: 60px 20px 30px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  width: 150px;
+  height: auto;
+}
+
+.footer-section h5 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  color: var(--ho-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: var(--ho-red);
+}
+
+.social-links li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links li a:hover {
+  color: var(--ho-red);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-logo-container {
+    margin-bottom: 20px;
+  }
+
+  .social-links li a {
+    justify-content: center;
+  }
+}
+
+.hero-location {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(50%);
+}
+
+.hero-location-content {
+  max-width: 900px;
+  padding: 40px;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-location-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-location-content p {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.map-btn {
+  background-color: #ffb300;
+  color: #000;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+.map-btn:hover {
+  background-color: #ffcb42;
+  transform: scale(1.05);
+}

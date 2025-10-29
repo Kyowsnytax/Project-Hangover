@@ -1,0 +1,378 @@
+/* ===== 🎨 HANGOVER COLOR PALETTE ===== */
+
+:root {
+  --ho-red: #D22B2B;       
+  --ho-red-hover: #A31F1F;
+  --ho-gold: #FFC300;      
+  --ho-dark: #1A1A1A;       
+  --ho-light: #F5F5F5;     
+}
+
+/* Custom Utility Class for Gold Text */
+.text-ho-gold {
+  color: var(--ho-gold) !important;
+}
+#navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem 2rem;
+  width: 95%;
+  max-width: 1400px;
+  transition: all 0.4s ease;
+}
+
+/* Navbar when scrolling (SNAPPED & ROUNDED RECTANGULAR) */
+#navbar.scrolled {
+  top: 0;
+  left: 0;
+  transform: none;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Brand text */
+#navbar .navbar-brand {
+  font-size: 1.7rem;
+  color: var(--ho-red);
+  letter-spacing: 2px;
+}
+
+/* Links (desktop) */
+#navbar .nav-link {
+  font-weight: 500;
+  color: #333;
+  padding: 0.5rem 1.2rem;
+  transition: color 0.3s ease;
+}
+
+#navbar .nav-link:hover {
+  color: var(--ho-red);
+}
+
+/* ===== Mobile Menu Overlay ===== */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+  z-index: 2000;
+}
+
+.mobile-nav-links a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s;
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+}
+
+.mobile-nav-links li {
+  margin: 1rem 0;
+}
+
+.mobile-nav-links a:hover {
+  color: var(--ho-red);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  #menuToggle {
+    display: none;
+  }
+}
+/* ===== Footer Styles ===== */
+#footer {
+  background-color: var(--ho-dark);
+  color: var(--ho-light);
+  padding: 60px 20px 30px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  width: 150px;
+  height: auto;
+}
+
+.footer-section h5 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  color: var(--ho-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: var(--ho-red);
+}
+
+.social-links li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links li a:hover {
+  color: var(--ho-red);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-logo-container {
+    margin-bottom: 20px;
+  }
+
+  .social-links li a {
+    justify-content: center;
+  }
+}
+
+.content-start {
+    padding-top: 100px !important; 
+}
+/* ===== MAIN STORY SECTIONS ===== */
+
+/* General look for all story sections */
+.story-chapter {
+  position: relative;
+  overflow: hidden;
+  color: var(--ho-light);
+  font-family: 'Oswald', sans-serif;
+  transition: background 0.6s ease;
+}
+
+.story-chapter h2.chapter-year {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.story-chapter h3.chapter-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.story-chapter p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* --- 2023: The Craving Begins (Night Neon Vibe) --- */
+#story-chapter-1 {
+  background: linear-gradient(135deg, #1a1a1a 60%, #2d0c0c);
+  color: #fff;
+}
+
+#story-chapter-1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+  opacity: 0.2;
+}
+
+/* --- 2024: Cooking Up the Plan (Gold Glow) --- */
+#story-chapter-2 {
+  background: radial-gradient(circle at top left, #4a3200, #1a1a1a 80%);
+  color: var(--ho-light);
+}
+
+#story-chapter-2 .chapter-year {
+  text-shadow: 0 0 10px var(--ho-gold);
+}
+
+#story-chapter-2 img {
+  border: 3px solid var(--ho-gold);
+  box-shadow: 0 0 30px rgba(255, 195, 0, 0.3);
+}
+
+/* --- 2025: The Night Spot is Born (Red Energy) --- */
+#story-chapter-3 {
+  background: linear-gradient(135deg, #5a0e0e, #1a1a1a);
+  color: var(--ho-light);
+}
+
+#story-chapter-3 img {
+  border: 3px solid var(--ho-red);
+  box-shadow: 0 0 25px rgba(210, 43, 43, 0.3);
+}
+
+#story-chapter-3 .chapter-year {
+  text-shadow: 0 0 10px var(--ho-red);
+}
+
+/* --- Hero Section --- */
+#our-story-hero {
+  background: linear-gradient(to bottom, var(--ho-dark), #2b2b2b);
+  color: var(--ho-light);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.story-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--ho-red);
+  text-shadow: 0 0 15px rgba(210, 43, 43, 0.3);
+}
+
+/* --- Tagline --- */
+#story-tagline {
+  background: #fff;
+  color: var(--ho-dark);
+  font-style: italic;
+}
+
+/* --- Shared Image Effects --- */
+.chapter-img {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.chapter-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.3);
+}
+
+/* --- Fade-in Animation on Scroll --- */
+@keyframes fadeUp {
+  0% {opacity: 0; transform: translateY(40px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+.story-chapter .col-lg-6 {
+  animation: fadeUp 1s ease both;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+  .story-title {
+    font-size: 2.5rem;
+  }
+  .chapter-year {
+    font-size: 2.5rem;
+  }
+  .chapter-title {
+    font-size: 1.4rem;
+  }
+}
+/* Story Tagline Section */
+#story-tagline {
+  background: linear-gradient(135deg, #1a1a1a 60%, #2d0c0c);
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+}
+
+#story-tagline .lead {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #f8f8f8;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+#story-tagline .lead::before,
+#story-tagline .lead::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff5500, #ffcc00);
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  #story-tagline {
+    padding: 60px 15px;
+  }
+
+  #story-tagline .lead {
+    font-size: 1.2rem;
+  }
+}
