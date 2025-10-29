@@ -59,13 +59,13 @@
           <small>Already have an account? Log In</small>
         </a>
 
-        <form id="registerForm" class="login-form">
+        <form id="registerForm" class="login-form" method="POST" action="api/create_account.php">
           <div class="input-group mb-3">
-            <input type="text" id="username" name="username" placeholder="Set Username" class="form-control input-field">
+            <input type="text" id="registerusername" name="username" placeholder="Set Username" class="form-control input-field">
           </div>
           
           <div class="input-group mb-3 position-relative">
-            <input type="password" id="password" name="password" placeholder="Set Password" class="form-control input-field password-field">
+            <input type="password" id="registerpassword" name="password" placeholder="Set Password" class="form-control input-field password-field">
             <span class="password-toggle position-absolute top-50 end-0 translate-middle-y me-3">
               <i class="bi bi-eye-slash"></i>
             </span>
