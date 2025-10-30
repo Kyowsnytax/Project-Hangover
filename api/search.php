@@ -39,6 +39,7 @@ if (!$result) {
 }
 
 // Output HTML for each item
+
 while ($row = $result->fetch_assoc()) {
   echo "
   <div class='row p-2 bg-white border rounded mb-3'>

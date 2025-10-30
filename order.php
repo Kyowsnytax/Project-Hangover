@@ -1,4 +1,4 @@
-<?php include './api/search.php'; ?>
+
 
 <!doctype html>
 
@@ -121,7 +121,35 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script src="script.js"></script>
-  <script src="scriptfororder.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('searchInput');
+  const categorySelect = document.getElementById('categorySelect');
+  const menuContainer = document.getElementById('menuContainer');
+
+  function fetchResults() {
+    const query = searchInput.value;
+    const category = categorySelect.value;
+
+    fetch(`./api/search.php?q=${encodeURIComponent(query)}&category=${encodeURIComponent(category)}`)
+      .then(res => res.text())
+      .then(html => {
+        menuContainer.innerHTML = html;
+      })
+      .catch(err => {
+        console.error(err);
+        menuContainer.innerHTML = '<p class="text-danger">Error loading results.</p>';
+      });
+  }
+
+  searchInput.addEventListener('input', fetchResults);
+  categorySelect.addEventListener('change', fetchResults);
+
+  // initial load
+  fetchResults();
+});
+</script>
+
 </body>
 
 </html>
