@@ -51,7 +51,7 @@ include './api/sort.php';
             <a class="nav-link px-3" href="location.html"><i class="bi bi-geo-alt"></i> Location</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link px-3" href="menu.html"><i class="bi bi-egg-fried"></i> Menu</a>
+            <a class="nav-link px-3" href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a>
           </li>
           <li class="nav-item" id="navbarOrderLink">
             <a class="nav-link px-3" href="order.php" id="orderLink"><i class="bi bi-cart-check"></i> Order</a>
@@ -78,7 +78,7 @@ include './api/sort.php';
         <a href="location.html"><i class="bi bi-geo-alt"></i> Location</a>
       </li>
       <li>
-        <a href="menu.html"><i class="bi bi-egg-fried"></i> Menu</a>
+        <a href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a>
       </li>
       <li>
         <a href="order.php"><i class="bi bi-cart-check"></i> Order</a>
@@ -175,7 +175,7 @@ include './api/sort.php';
           <li><a href="home.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="location.html">Location</a></li>
-          <li><a href="menu.html">Menu List</a></li>
+          <li><a href="menu.php">Menu List</a></li>
           <li><a href="account.php">Account</a></li>
           <li><a href="order.php">Order Online</a></li>
         </ul>

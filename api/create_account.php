@@ -1,32 +1,56 @@
 <?php
-include 'dbconn.php';
+include 'dbconn.php'; // database connection
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user = trim($_POST['registerusername'] ?? '');
-    $password = trim($_POST['registerpassword'] ?? '');
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
+$confirmPassword = trim($_POST['confirmpassword']);
 
-    if (empty($user) || empty($password)) {
-        echo json_encode(['status' => 'error', 'message' => 'All fields required']);
-        exit;
+try {
+    // Basic validation
+    if (empty($username) || empty($password) || empty($confirmPassword)) {
+        throw new Exception("All fields are required.");
     }
 
-    // Check if username exists
-    $check = $conn->prepare("SELECT id FROM buyeruser WHERE username = ?");
-    $check->bind_param("s", $user);
+    if ($password !== $confirmPassword) {
+        throw new Exception("Passwords do not match.");
+    }
+
+    // Check for existing username
+    $check = $conn->prepare("SELECT username FROM buyeruser WHERE username = ?");
+    if (!$check) {
+        throw new Exception("Prepare failed: " . htmlspecialchars($conn->error));
+    }
+
+    $check->bind_param("s", $username);
     $check->execute();
-    $result = $check->get_result();
+    $check->store_result();
 
-    if ($result->num_rows > 0) {
-        echo json_encode(['status' => 'exists']);
-        exit;
+    if ($check->num_rows > 0) {
+        throw new Exception("Username already exists.");
     }
 
-    // Insert new account (hashed password)
-    $hashed = password_hash($password, PASSWORD_DEFAULT);
-    $stmt = $conn->prepare("INSERT INTO buyeruser (username, userpassword) VALUES (?, ?)");
-    $stmt->bind_param("ss", $user, $hashed);
-    $stmt->execute();
+    $check->close();
 
-    echo json_encode(['status' => 'success']);
+    // Insert new user
+    $stmt = $conn->prepare("INSERT INTO buyeruser (username, userpassword) VALUES (?, ?)");
+    if (!$stmt) {
+        throw new Exception("Prepare failed: " . htmlspecialchars($conn->error));
+    }
+
+    $stmt->bind_param("ss", $username, $password);
+
+    if (!$stmt->execute()) {
+        throw new Exception("Execute failed: " . htmlspecialchars($stmt->error));
+    }
+    // ✅ Redirect to Login.php
+    echo "<script>
+        alert('Account created successfully! Please log in.');
+        window.location.href = '../Login.php';
+    </script>";
+    exit;
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+} finally {
+    if (isset($stmt) && $stmt) $stmt->close();
+    if (isset($conn) && $conn) $conn->close();
 }
-?>

@@ -8,6 +8,8 @@ $msqlquery =  "SELECT item_name, description, price
 
     $result = $conn->query($msqlquery);
 
+
 }catch(mysqli_sql_exception $e){
     echo " Failed fetching Menu";
 }
+$conn->close();

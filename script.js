@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    
+
     // // --- TOAST HELPER FUNCTION (TIMER REMOVED) ---
     // function showLoginToastAndRedirect() {
     //     const loginToastElement = document.getElementById('loginToast');
@@ -60,3 +62,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
 })
+document.addEventListener("DOMContentLoaded", () => {
+  // Select all toggle icons on the page
+  const toggles = document.querySelectorAll(".password-toggle");
+
+  toggles.forEach(toggle => {
+    const icon = toggle.querySelector("i");
+    const input = toggle.parentElement.querySelector(".password-field");
+
+    if (icon && input) {
+      toggle.addEventListener("click", () => {
+        const isPassword = input.getAttribute("type") === "password";
+        input.setAttribute("type", isPassword ? "text" : "password");
+
+        // Toggle eye icon style
+        icon.classList.toggle("bi-eye");
+        icon.classList.toggle("bi-eye-slash");
+      });
+    }
+  });
+});
