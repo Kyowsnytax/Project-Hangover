@@ -69,16 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- HTML Templates (Forms) ---
     const loginFormTemplate = (defaultUser) => `
+ 
         <h1 class="login-title text-center mb-1"><i class="bi bi-box-arrow-in-right me-2"></i>Log In</h1>
         <a href="register.html" class="account-question-btn text-center mb-4 text-decoration-none d-block">
           <small>Need an account? <b>Create an Account</b></small>
         </a>
-        <form id="loginForm" class="login-form">
+        <form id="loginForm" class="login-form" method="POST" action="api/fetch_login.php">
           <div class="input-group mb-3">
-            <input type="text" id="username" name="username" placeholder="Username" class="form-control input-field" value="${defaultUser === 'Guest' ? '' : defaultUser}">
+            <input type="text" id="loginusername" name="username" placeholder="Username" class="form-control input-field" value="${defaultUser === 'Guest' ? '' : defaultUser}">
           </div>
           <div class="input-group mb-3 position-relative">
-            <input type="password" id="password" name="password" placeholder="Password" class="form-control input-field password-field">
+            <input type="password" id="loginpassword" name="password" placeholder="Password" class="form-control input-field password-field">
             <span class="password-toggle position-absolute top-50 end-0 translate-middle-y me-3">
               <i class="bi bi-eye-slash"></i>
             </span>
@@ -93,13 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <small>Already have an account? Log In</small>
         </a>
 
-        <form id="registerForm" class="login-form">
+        <form id="registerForm" class="login-form"  method="POST" action="api/create_account.php">
           <div class="input-group mb-3">
-            <input type="text" id="username" name="username" placeholder="Set Username" class="form-control input-field">
+            <input type="text" id="username" name="registerusername" placeholder="Set Username" class="form-control input-field">
           </div>
           
           <div class="input-group mb-3 position-relative">
-            <input type="password" id="password" name="password" placeholder="Set Password" class="form-control input-field password-field">
+            <input type="password" id="password" name="registerpassword" placeholder="Set Password" class="form-control input-field password-field">
             <span class="password-toggle position-absolute top-50 end-0 translate-middle-y me-3">
               <i class="bi bi-eye-slash"></i>
             </span>
@@ -234,4 +235,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+
+
+
+
+
 });
+
