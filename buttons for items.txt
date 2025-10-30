@@ -24,9 +24,7 @@
 
 
 
-
-                  <!-- this is the items -->
-  <section style="padding-top: 5rem; padding-left: 10rem;">
+ <section style="padding-top: 5rem; padding-left: 10rem;">
     <div class="container mt-5 mb-5">
       <div class="d-flex justify-content-center row">
 
@@ -38,7 +36,7 @@
           <input type="search" id="searchInput" class="form-control w-50" placeholder="Search for items...">
 
           <select id="categorySelect" class="form-select w-auto">
-            <option value="all">All Categories</option> 
+            <option value="all">All Categories</option>
             <option value="burger">Burgers</option>
             <option value="sidedish">Side Dishes</option>
             <option value="kiddiemeal">Kids Meals</option>
@@ -48,7 +46,7 @@
           </select>
         </div>
 
-        <div class="col-md-10">
+        <div id="menuContainer" class="col-md-10">
           <?php while ($row = $result->fetch_assoc()) { ?>
             <div class="row p-2 bg-white border rounded mb-3">
 
@@ -99,4 +97,7 @@
 
       </div>
     </div>
+  </section>
+  </div>
+  </div>
   </section>

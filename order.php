@@ -54,14 +54,11 @@
 
 
   <!-- this is the items -->
-  <section style="padding-top: 5rem; padding-left: 10rem;">
+   <section style="padding-top: 5rem; padding-left: 10rem;">
     <div class="container mt-5 mb-5">
       <div class="d-flex justify-content-center row">
 
-
-        <!-- create a 3 button here breakfast lunch and dinner -->
-
-
+        <!-- 🔎 Search + Category -->
         <div class="container d-flex justify-content-center mb-5 gap-4">
           <input type="search" id="searchInput" class="form-control w-50" placeholder="Search for items...">
 
@@ -76,60 +73,13 @@
           </select>
         </div>
 
-        <div class="col-md-10">
-          <?php while ($row = $result->fetch_assoc()) { ?>
-            <div class="row p-2 bg-white border rounded mb-3">
-
-              <div class="col-md-3 mt-1"
-                style="width: 16rem; height: 11rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;">
-                <img
-                  src="./Images/menus/<?= htmlspecialchars($row['item_name']) ?>.jpg"
-                  alt="<?= htmlspecialchars($row['item_name']) ?>"
-                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;" />
-              </div>
-
-              <div class="col-md-6 mt-1">
-                <h5><?= htmlspecialchars($row['item_name']) ?></h5>
-                <p class="text-justify mb-0"><?= htmlspecialchars($row['description']) ?></p>
-              </div>
-
-              <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                <div class="d-flex flex-row align-items-center">
-                  <h4 class="mr-1"><span>₱</span><?= number_format($row['price'], 2) ?></h4>
-                </div>
-                <span class="text-success"><?= ucfirst(htmlspecialchars($row['category'])) ?></span>
-
-                <div class="d-flex flex-column mt-4 hidden-buttons">
-                  <button
-                    class="btn btn-primary btn-sm buybtn"
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#myModalbuy"
-                    data-name="<?= htmlspecialchars($row['item_name']) ?>"
-                    data-description="<?= htmlspecialchars($row['description']) ?>"
-                    data-price="<?= $row['price'] ?>">
-                    Buy
-                  </button>
-
-                  <button
-                    class="btn btn-outline-primary btn-sm mt-2 addToListBtn"
-                    type="button"
-                    data-name="<?= htmlspecialchars($row['item_name']) ?>"
-                    data-price="<?= $row['price'] ?>">
-                    Add to list
-                  </button>
-                </div>
-              </div>
-            </div>
-          <?php } ?>
+        <!-- 📦 Container where search results will load -->
+        <div id="menuContainer" class="col-md-10 text-center text-muted">
+          Loading items...
         </div>
-
 
       </div>
     </div>
-  </section>
-  </div>
-  </div>
   </section>
   <!-- end of items -->
 
@@ -171,6 +121,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script src="script.js"></script>
+  <script src="scriptfororder.js"></script>
 </body>
 
 </html>
