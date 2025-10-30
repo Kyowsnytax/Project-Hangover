@@ -28,8 +28,13 @@
             <li class="nav-item"><a class="nav-link px-3" href="about.html"><i class="bi bi-truck"></i> About</a></li>
             <li class="nav-item"><a class="nav-link px-3" href="location.html"><i class="bi bi-geo-alt"></i> Location</a></li>
             <li class="nav-item"><a class="nav-link px-3" href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
-            <li class="nav-item" id="navbarOrderLink"><a class="nav-link px-3" href="#" id="orderLink"><i class="bi bi-cart-check"></i> Order</a></li>
-            <li class="nav-item" id="navbarAccountLink"><a class="nav-link px-3" href="account.html"><i class="bi bi-person-circle"></i><span id="navbarAccountText">Account</span></a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="#"><i class="bi bi-cart-check"></i> Order</a></li>
+            <li class="nav-item" id="navbarAccountLink">
+                <a class="nav-link px-3" href="Login.php">
+                    <i class="bi bi-person-circle"></i> 
+                    <span id="navbarAccountText">Account</span>
+                </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -42,16 +47,38 @@
         <li><a href="about.html"><i class="bi bi-truck"></i> About</a></li>
         <li><a href="location.html"><i class="bi bi-geo-alt"></i> Location</a></li>
         <li><a href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
-        <li><a href="order.html"><i class="bi bi-cart-check"></i> Order</a></li>
-        <li><a href="account.html"><i class="bi bi-person-circle"></i> Account</a></li>
+        <li><a href="#"><i class="bi bi-cart-check"></i> Order</a></li>
+        <li><a href="Login.php"><i class="bi bi-person-circle"></i> Account</a></li>
       </ul>
     </div>
 
     <main class="login-container d-flex justify-content-center"> 
       <div id="loginContainer" class="login-box p-4 p-md-5 shadow-lg rounded-3">
-        </div>
-    </main>
-    
+        <h1 class="login-title text-center mb-1 bi bi-person-circle"> Register</h1>
+        <a href="register.php" class="account-question-btn text-center mb-4 text-decoration-none d-block">
+          <small>Dont have an Account? Register</small>
+        </a>
+
+        <form id="registerForm" class="login-form">
+          <div class="input-group mb-3">
+            <input type="text" id="username" name="username" placeholder="Set Username" class="form-control input-field">
+          </div>
+          
+          <div class="input-group mb-3 position-relative">
+            <input type="password" id="password" name="password" placeholder="Set Password" class="form-control input-field password-field">
+            <span class="password-toggle position-absolute top-50 end-0 translate-middle-y me-3">
+              <i class="bi bi-eye-slash"></i>
+            </span>
+          </div>
+
+          <button type="submit" class="sign-in-button w-100 btn btn-primary mt-3 mb-3 fw-bold">SIGN UP</button>
+
+          </form>
+      </div>
+</main>
+
+
+
     <footer id="footer">
       <div class="footer-top container d-flex flex-wrap justify-content-between align-items-start">
         <div class="footer-logo-container">
@@ -65,8 +92,8 @@
             <li><a href="about.html">About</a></li>
             <li><a href="location.html">Location</a></li>
             <li><a href="menu.php">Menu List</a></li>
-            <li><a href="account.html">Account</a></li>
-            <li><a href="order.html">Order Online</a></li>
+            <li><a href="Login.php">Account</a></li>
+            <li><a href="#">Order Online</a></li>
           </ul>
         </div>
 
@@ -83,17 +110,6 @@
         <p>Cure your Hangover! One Bite at a Time.</p>
       </div>
     </footer>
-
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="loginToast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-            <div class="toast-body fw-bold">
-                <i class="bi bi-exclamation-triangle-fill me-2"></i> You need to log in before accessing this page.
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-    </div>
-</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="script.js"></script>

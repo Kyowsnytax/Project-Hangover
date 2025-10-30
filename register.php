@@ -27,10 +27,10 @@
             <li class="nav-item"><a class="nav-link px-3" href="home.html"><i class="bi bi-house-door"></i> Home</a></li>
             <li class="nav-item"><a class="nav-link px-3" href="about.html"><i class="bi bi-truck"></i> About</a></li>
             <li class="nav-item"><a class="nav-link px-3" href="location.html"><i class="bi bi-geo-alt"></i> Location</a></li>
-            <li class="nav-item"><a class="nav-link px-3" href="menu.html"><i class="bi bi-egg-fried"></i> Menu</a></li>
-            <li class="nav-item"><a class="nav-link px-3" href="order.html"><i class="bi bi-cart-check"></i> Order</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="#"><i class="bi bi-cart-check"></i> Order</a></li>
             <li class="nav-item" id="navbarAccountLink">
-                <a class="nav-link px-3" href="account.html">
+                <a class="nav-link px-3" href="Login.php">
                     <i class="bi bi-person-circle"></i> 
                     <span id="navbarAccountText">Account</span>
                 </a>
@@ -46,16 +46,16 @@
         <li><a href="home.html"><i class="bi bi-house-door"></i> Home</a></li>
         <li><a href="about.html"><i class="bi bi-truck"></i> About</a></li>
         <li><a href="location.html"><i class="bi bi-geo-alt"></i> Location</a></li>
-        <li><a href="menu.html"><i class="bi bi-egg-fried"></i> Menu</a></li>
-        <li><a href="order.html"><i class="bi bi-cart-check"></i> Order</a></li>
-        <li><a href="account.html"><i class="bi bi-person-circle"></i> Account</a></li>
+        <li><a href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
+        <li><a href="#"><i class="bi bi-cart-check"></i> Order</a></li>
+        <li><a href="register.php"><i class="bi bi-person-circle"></i> Account</a></li>
       </ul>
     </div>
 
     <main class="login-container d-flex justify-content-center"> 
       <div id="loginContainer" class="login-box p-4 p-md-5 shadow-lg rounded-3">
         <h1 class="login-title text-center mb-1 bi bi-person-circle"> Register</h1>
-        <a href="account.html" class="account-question-btn text-center mb-4 text-decoration-none d-block">
+        <a href="Login.php" class="account-question-btn text-center mb-4 text-decoration-none d-block">
           <small>Already have an account? Log In</small>
         </a>
 
@@ -63,14 +63,20 @@
           <div class="input-group mb-3">
             <input type="text" id="username" name="username" placeholder="Set Username" class="form-control input-field">
           </div>
-          
           <div class="input-group mb-3 position-relative">
             <input type="password" id="password" name="password" placeholder="Set Password" class="form-control input-field password-field">
             <span class="password-toggle position-absolute top-50 end-0 translate-middle-y me-3">
               <i class="bi bi-eye-slash"></i>
             </span>
+            
           </div>
-
+          <div class="input-group mb-3 position-relative">
+            <input type="confirmpassword" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" class="form-control input-field password-field">
+            <span class="password-toggle position-absolute top-50 end-0 translate-middle-y me-3">
+              <i class="bi bi-eye-slash"></i>
+            </span>
+            
+          </div>
           <button type="submit" class="sign-in-button w-100 btn btn-primary mt-3 mb-3 fw-bold">SIGN UP</button>
 
           </form>
@@ -88,9 +94,9 @@
             <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="location.html">Location</a></li>
-            <li><a href="menu.html">Menu List</a></li>
-            <li><a href="account.html">Account</a></li>
-            <li><a href="order.html">Order Online</a></li>
+            <li><a href="menu.php">Menu List</a></li>
+            <li><a href="Login.php">Account</a></li>
+            <li><a href="#">Order Online</a></li>
           </ul>
         </div>
 

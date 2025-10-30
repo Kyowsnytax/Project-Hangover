@@ -54,10 +54,10 @@ include './api/sort.php';
             <a class="nav-link px-3" href="menu.html"><i class="bi bi-egg-fried"></i> Menu</a>
           </li>
           <li class="nav-item" id="navbarOrderLink">
-            <a class="nav-link px-3" href="#" id="orderLink"><i class="bi bi-cart-check"></i> Order</a>
+            <a class="nav-link px-3" href="order.php" id="orderLink"><i class="bi bi-cart-check"></i> Order</a>
           </li>
           <li class="nav-item" id="navbarAccountLink">
-            <a class="nav-link px-3" href="account.html"><i class="bi bi-person-circle"></i><span id="navbarAccountText">Account</span></a>
+            <a class="nav-link px-3" href="account.php"><i class="bi bi-person-circle"></i><span id="navbarAccountText">Account</span></a>
           </li>
         </ul>
       </div>
@@ -81,10 +81,10 @@ include './api/sort.php';
         <a href="menu.html"><i class="bi bi-egg-fried"></i> Menu</a>
       </li>
       <li>
-        <a href="order.html"><i class="bi bi-cart-check"></i> Order</a>
+        <a href="order.php"><i class="bi bi-cart-check"></i> Order</a>
       </li>
       <li>
-        <a href="account.html"><i class="bi bi-person-circle"></i> Account</a>
+        <a href="account.php"><i class="bi bi-person-circle"></i> Account</a>
       </li>
     </ul>
   </div>
@@ -176,8 +176,8 @@ include './api/sort.php';
           <li><a href="about.html">About</a></li>
           <li><a href="location.html">Location</a></li>
           <li><a href="menu.html">Menu List</a></li>
-          <li><a href="account.html">Account</a></li>
-          <li><a href="order.html">Order Online</a></li>
+          <li><a href="account.php">Account</a></li>
+          <li><a href="order.php">Order Online</a></li>
         </ul>
       </div>
 
