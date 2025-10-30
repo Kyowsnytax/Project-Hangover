@@ -114,13 +114,15 @@ include './api/sort.php';
         <div class="col-md-10">
           <?php while ($row = $result->fetch_assoc()) { ?>
             <div class="row p-2 bg-white border rounded mb-3">
-              <div class="col-md-3 mt-1">
+              
+              <div class="col-md-3 mt-1"
+                style="width: 16rem; height: 11rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;">
                 <img
-                  src="./src/photo/breakfast/Omelete_special.png"
-                  style="border-radius: 0.5rem; width: 16rem; height: 11rem"
-                  alt="<?= htmlspecialchars($row['item_name']) ?>" />
-                <!-- i need a list of the photo based on the number on the db menus id -->
+                  src="./Images/menus/<?= htmlspecialchars($row['item_name']) ?>.png"
+                  alt="<?= htmlspecialchars($row['item_name']) ?>"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;" />
               </div>
+
               <div class="col-md-6 mt-1">
                 <h5 id="product-name">
                   <?= htmlspecialchars($row['item_name']) ?>
@@ -140,28 +142,10 @@ include './api/sort.php';
                 <span class="text-success">
                   <?= ucfirst(htmlspecialchars($category)) ?>
                 </span>
-                <div class="d-flex flex-column mt-4 hidden-buttons">
-                  <button
-                    class="btn btn-primary btn-sm buybtn"
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#myModalbuy"
-                    data-name="<?= htmlspecialchars($row['item_name']) ?>"
-                    data-description="<?= htmlspecialchars($row['description']) ?>"
-                    data-price="<?= $row['price'] ?>"
-                    data-image="./src/photo/breakfast/Omelete_special.png">
-                    <!-- i need a list of the photo based on the number on the db menus id -->
-                    Buy
-                  </button>
 
-                  <button
-                    class="btn btn-outline-primary btn-sm mt-2 addToListBtn"
-                    type="button"
-                    data-name="<?= htmlspecialchars($row['item_name']) ?>"
-                    data-price="<?= $row['price'] ?>">
-                    Add to list
-                  </button>
-                </div>
+                <!-- the buttons are here -->
+
+                
               </div>
             </div>
           <?php } ?>

@@ -1,0 +1,22 @@
+<div class="d-flex flex-column mt-4 hidden-buttons">
+                  <button
+                    class="btn btn-primary btn-sm buybtn"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModalbuy"
+                    data-name="<?= htmlspecialchars($row['item_name']) ?>"
+                    data-description="<?= htmlspecialchars($row['description']) ?>"
+                    data-price="<?= $row['price'] ?>"
+                    data-image="./src/photo/breakfast/Omelete_special.png">
+                    <!-- i need a list of the photo based on the number on the db menus id -->
+                    Buy
+                  </button>
+
+                  <button
+                    class="btn btn-outline-primary btn-sm mt-2 addToListBtn"
+                    type="button"
+                    data-name="<?= htmlspecialchars($row['item_name']) ?>"
+                    data-price="<?= $row['price'] ?>">
+                    Add to list
+                  </button>
+                </div>
