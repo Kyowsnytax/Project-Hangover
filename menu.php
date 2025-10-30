@@ -1,6 +1,15 @@
 <?php
 include './api/sort.php';
 ?>
+<?php
+if (!isset($_GET['category'])) {
+    header("Location: ?category=burger");
+    exit();
+}
+
+$active = $_GET['category'];
+?>
+
 
 <!DOCTYPE html>
 
@@ -124,7 +133,7 @@ include './api/sort.php';
               <div class="col-md-3 mt-1"
                 style="width: 16rem; height: 11rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;">
                 <img
-                  src="./Images/menus/<?= htmlspecialchars($row['item_name']) ?>.png"
+                  src="./Images/menus/<?= htmlspecialchars($row['item_name']) ?>.jpg"
                   alt="<?= htmlspecialchars($row['item_name']) ?>"
                   style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;" />
               </div>
