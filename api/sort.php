@@ -5,17 +5,26 @@ include 'dbconn.php';
 $category = $_GET['category'] ?? 'breakfast';
 
 switch ($category) {
-    case 'breakfast':
-        include 'fetch_breakfast.php';
+    case 'burger':
+        include 'fetch_burger.php';
         break;
-    case 'lunch':
-        include 'fetch_lunch.php';
+    case 'shakes':
+        include 'fetch_shakes.php';
         break;
-    case 'dinner':
-        include 'fetch_dinner.php';
+    case 'coffee':
+        include 'fetch_coffee.php';
+        break;
+    case 'chickenwings':
+        include 'fetch_chickenwings.php';
+        break;
+    case 'sidedishes':
+        include 'fetch_sidedishes.php';
+        break;
+    case 'kiddiemeals':
+        include 'fetch_kiddiemeals.php';
         break;
     default:
-        include 'fetch_breakfast.php';
+        include 'fetch_burger.php';
         break;
 }
 ?>

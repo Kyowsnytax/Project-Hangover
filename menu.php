@@ -101,11 +101,17 @@ include './api/sort.php';
 
         <!-- create a 3 button here breakfast lunch and dinner -->
 
-        <?php $active = $_GET['category'] ?? 'breakfast'; ?>
+        <?php $active = $_GET['category'] ?? 'burger'; ?>
         <div class="container d-flex justify-content-center mb-5 gap-4">
-          <a href="?category=breakfast" class="btn <?= $active == 'breakfast' ? 'btn-primary' : 'btn-outline-primary' ?>">Breakfast</a>
-          <a href="?category=lunch" class="btn <?= $active == 'lunch' ? 'btn-primary' : 'btn-outline-primary' ?>">Lunch</a>
-          <a href="?category=dinner" class="btn <?= $active == 'dinner' ? 'btn-primary' : 'btn-outline-primary' ?>">Dinner</a>
+          <a href="?category=burger" class="btn <?= $active == 'burger' ? 'btn-primary' : 'btn-outline-primary' ?>">Burger</a>
+
+          <a href="?category=shakes" class="btn <?= $active == 'shakes' ? 'btn-primary' : 'btn-outline-primary' ?>">Shakes</a>
+
+          <a href="?category=coffee" class="btn <?= $active == 'coffee' ? 'btn-primary' : 'btn-outline-primary' ?>">Coffee</a>
+          <a href="?category=chickenwings" class="btn <?= $active == 'chickenwings' ? 'btn-primary' : 'btn-outline-primary' ?>">Chicken Wings</a>
+          <a href="?category=sidedishes" class="btn <?= $active == 'sidedishes' ? 'btn-primary' : 'btn-outline-primary' ?>">Side Dishes</a>
+          <a href="?category=kiddiemeals" class="btn <?= $active == 'kiddiemeals' ? 'btn-primary' : 'btn-outline-primary' ?>">Kiddie Meals</a>
+
         </div>
 
 

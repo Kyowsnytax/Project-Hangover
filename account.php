@@ -73,12 +73,10 @@ $username = $_SESSION['username'];
           <input type="text" id="username" name="username" placeholder="Username" class="form-control input-field" value="<?php echo htmlspecialchars($username); ?>" readonly>
           <!-- i need the placeholder to be the name of log in account -->
         </div>
-
-        <form action="./api/logout.php" method="post">
+      </form>
+       <form action="./api/logout.php" method="post">
           <button type="submit" class="w-100 btn btn-primary mt-3 mb-3 fw-bold">LOG OUT</button>
         </form>
-
-      </form>
     </div>
   </main>
 

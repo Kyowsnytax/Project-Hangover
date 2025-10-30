@@ -3,7 +3,7 @@ include 'dbconn.php';
 
 try{
 $msqlquery =  "SELECT item_name, description, price
-        FROM lunch_menu
+        FROM coffee
         ORDER BY item_id ASC";
 
     $result = $conn->query($msqlquery);
