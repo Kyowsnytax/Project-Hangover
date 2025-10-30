@@ -1,8 +1,13 @@
 <?php
 include 'dbconn.php';
 
+try{
 $msqlquery =  "SELECT item_name, description, price
         FROM breakfast_menu 
         ORDER BY item_id ASC";
 
-    $result = $dbconn->query($msqlquery);
+    $result = $conn->query($msqlquery);
+
+}catch(mysqli_sql_exception $e){
+    echo " Failed fetching Menu";
+}
