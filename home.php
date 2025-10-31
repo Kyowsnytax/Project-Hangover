@@ -21,9 +21,9 @@
 
         <div class="collapse navbar-collapse justify-content-end d-none d-lg-block" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link px-3" href="home.html"><i class="bi bi-house-door"></i> Home</a></li>
-            <li class="nav-item"><a class="nav-link px-3" href="about.html"><i class="bi bi-truck"></i> About</a></li>
-            <li class="nav-item"><a class="nav-link px-3" href="location.html"><i class="bi bi-geo-alt"></i> Location</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="home.php"><i class="bi bi-house-door"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="about.php"><i class="bi bi-truck"></i> About</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="location.php"><i class="bi bi-geo-alt"></i> Location</a></li>
             <li class="nav-item"><a class="nav-link px-3" href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
             <li class="nav-item" id="navbarOrderLink"><a class="nav-link px-3" href="order.php" id="orderLink"><i class="bi bi-cart-check"></i> Order</a></li>
             <li class="nav-item" id="navbarAccountLink"><a class="nav-link px-3" href="account.php"><i class="bi bi-person-circle"></i><span id="navbarAccountText">Account</span></a></li>
@@ -35,9 +35,9 @@
     <div id="mobileMenu" class="mobile-menu">
       <button class="close-btn" id="closeMenu">&times;</button>
       <ul class="mobile-nav-links list-unstyled text-center">
-        <li><a href="home.html"><i class="bi bi-house-door"></i> Home</a></li>
-        <li><a href="about.html"><i class="bi bi-truck"></i> About</a></li>
-        <li><a href="location.html"><i class="bi bi-geo-alt"></i> Location</a></li>
+        <li><a href="home.php"><i class="bi bi-house-door"></i> Home</a></li>
+        <li><a href="about.php"><i class="bi bi-truck"></i> About</a></li>
+        <li><a href="location.php"><i class="bi bi-geo-alt"></i> Location</a></li>
         <li><a href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
         <li><a href="order.php"><i class="bi bi-cart-check"></i> Order</a></li>
         <li><a href="account.php"><i class="bi bi-person-circle"></i> Account</a></li>
@@ -178,7 +178,7 @@
             <h1 class="fw-bold mt-3 mt-lg-0">Hang Out Now!</h1>
             <h4>Whether it’s our loaded recovery fries, the burger that stops time, or a shake that perfectly cures a case of the late-night munchies, if it’s on our truck, it’s going to save the night. From 9 PM to 9 AM, we are the only place for your friends, your cravings, and your cure.</h4>
             <div class="abt-btn-container">
-              <a href="about.html" class="menu-btn mt-5">GO TO ABOUT</a>
+              <a href="about.php" class="menu-btn mt-5">GO TO ABOUT</a>
             </div>
           </div>
             
@@ -195,9 +195,9 @@
         <div class="footer-section menu-section">
           <h5>MENU</h5>
           <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="location.html">Location</a></li>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="location.php">Location</a></li>
             <li><a href="menu.php">Menu List</a></li>
             <li><a href="account.php">Account</a></li>
             <li><a href="order.php">Order Online</a></li>

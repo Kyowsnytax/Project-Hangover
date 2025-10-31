@@ -51,13 +51,13 @@ $active = $_GET['category'];
         id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link px-3" href="home.html"><i class="bi bi-house-door"></i> Home</a>
+            <a class="nav-link px-3" href="home.php"><i class="bi bi-house-door"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link px-3" href="about.html"><i class="bi bi-truck"></i> About</a>
+            <a class="nav-link px-3" href="about.php"><i class="bi bi-truck"></i> About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link px-3" href="location.html"><i class="bi bi-geo-alt"></i> Location</a>
+            <a class="nav-link px-3" href="location.php"><i class="bi bi-geo-alt"></i> Location</a>
           </li>
           <li class="nav-item">
             <a class="nav-link px-3" href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a>
@@ -78,13 +78,13 @@ $active = $_GET['category'];
     <button class="close-btn" id="closeMenu">&times;</button>
     <ul class="mobile-nav-links list-unstyled text-center">
       <li>
-        <a href="home.html"><i class="bi bi-house-door"></i> Home</a>
+        <a href="home.php"><i class="bi bi-house-door"></i> Home</a>
       </li>
       <li>
-        <a href="about.html"><i class="bi bi-truck"></i> About</a>
+        <a href="about.php"><i class="bi bi-truck"></i> About</a>
       </li>
       <li>
-        <a href="location.html"><i class="bi bi-geo-alt"></i> Location</a>
+        <a href="location.php"><i class="bi bi-geo-alt"></i> Location</a>
       </li>
       <li>
         <a href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a>
@@ -187,9 +187,9 @@ $active = $_GET['category'];
       <div class="footer-section menu-section">
         <h5>MENU</h5>
         <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="location.html">Location</a></li>
+          <li><a href="home.php">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="location.php">Location</a></li>
           <li><a href="menu.php">Menu List</a></li>
           <li><a href="account.php">Account</a></li>
           <li><a href="order.php">Order Online</a></li>

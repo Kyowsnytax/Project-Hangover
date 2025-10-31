@@ -123,3 +123,76 @@ while ($row = $result->fetch_assoc()) {
 
 $conn->close();
 ?>
+
+
+
+side bar
+
+
+
+
+    const sidebar = document.getElementById('orderSidebar');
+    const ordersLink = document.getElementById('orderlink');
+    const closeBtn = document.getElementById('closeSidebar');
+
+
+    ordersLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      sidebar.classList.toggle('active');
+    });
+    
+    closeBtn.addEventListener('click', function() {
+      sidebar.classList.remove('active');
+    });
+
+$(document).ready(function() {
+  const orderList = $('#orderList');
+  const orderTotal = $('#orderTotal');
+
+  function updateTotal() {
+    let total = 0;
+    $('.order-item').each(function() {
+      const price = parseFloat($(this).data('price'));
+      const qty = parseInt($(this).find('.qty-input').val());
+      total += price * qty;
+    });
+    orderTotal.text(total.toFixed(2));
+  }
+
+  // Toggle Add/Remove on button click
+  $(document).on('click', '.addToListBtn', function() {
+    const btn = $(this);
+    const name = btn.data('name');
+    const price = parseFloat(btn.data('price'));
+
+    // If item already added
+    if (btn.hasClass('btn-success')) {
+      btn.removeClass('btn-success').addClass('btn-outline-primary');
+      $(`.order-item[data-name="${name}"]`).remove();
+      btn.text('Add to list');
+      updateTotal();
+      return;
+    }
+
+    // Change button color
+    btn.removeClass('btn-outline-primary').addClass('btn-success').text('Added to list ✓');
+
+    // Add item to sidebar
+    const orderItem = $(`
+      <div class="order-item" data-name="${name}" data-price="${price}">
+        <div>
+          <strong>${name}</strong><br>₱${price.toFixed(2)}
+        </div>
+        <input type="number" class="qty-input form-control form-control-sm" min="1" value="1">
+      </div>
+    `);
+
+    orderList.append(orderItem);
+    updateTotal();
+  });
+
+  // Update total when quantity changes
+  $(document).on('input', '.qty-input', function() {
+    updateTotal();
+  });
+});
