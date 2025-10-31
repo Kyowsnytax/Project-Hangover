@@ -21,7 +21,7 @@ $query = "
 $conditions = [];
 if (!empty($search)) {
     $search = $conn->real_escape_string($search);
-    $conditions[] = "(item_name LIKE '%$search%' OR description LIKE '%$search%')";
+    $conditions[] = "(item_name LIKE '%$search%')";
 }
 if (!empty($category) && $category !== 'all') {
     $category = $conn->real_escape_string($category);
@@ -69,7 +69,7 @@ while ($row = $result->fetch_assoc()) {
             data-name='" . htmlspecialchars($row['item_name']) . "'
             data-description='" . htmlspecialchars($row['description']) . "'
             data-price='" . htmlspecialchars($row['price']) . "'
-            data-image='" . "./Images/menus/" . htmlspecialchars($row['item_name']) . ".jpg" . "'>
+            >
             Buy
         </button>
 
