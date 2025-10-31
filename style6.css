@@ -204,3 +204,16 @@
     justify-content: center;
   }
 }
+
+
+/* Custom slide-up animation for modal */
+.modal.fade .modal-dialog {
+  transform: translateY(100px);  /* start position (below center) */
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.modal.fade.show .modal-dialog {
+  transform: translateY(0);      /* end position (center) */
+  opacity: 1;
+}

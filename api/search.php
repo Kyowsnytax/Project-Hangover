@@ -49,8 +49,8 @@ while ($row = $result->fetch_assoc()) {
            style='width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;' />
     </div>
 
-    <div class='col-md-6 mt-1'>
-      <h5>" . htmlspecialchars($row['item_name']) . "</h5>
+    <div class='col-md-6 mt-1 align-items-left'>
+      <h4>" . htmlspecialchars($row['item_name']) . "</h4>
       <p class='text-justify mb-0'>" . htmlspecialchars($row['description']) . "</p>
     </div>
 
@@ -64,20 +64,21 @@ while ($row = $result->fetch_assoc()) {
         <div class='d-flex flex-column mt-4 hidden-buttons'>
         <button
             class='btn btn-primary btn-sm buybtn'
-            type='button'
+            
             data-bs-toggle='modal'
             data-bs-target='#myModalbuy'
             data-name='" . htmlspecialchars($row['item_name']) . "'
             data-description='" . htmlspecialchars($row['description']) . "'
-            data-price='" . $row['price'] . "'>
+            data-price='" . htmlspecialchars($row['price']) . "'
+            data-image='" . "./Images/menus/" . htmlspecialchars($row['item_name']) . ".jpg" . "'>
             Buy
         </button>
 
         <button
             class='btn btn-outline-primary btn-sm mt-2 addToListBtn'
-            type='button'
+            
             data-name='" . htmlspecialchars($row['item_name']) . "'
-            data-price='" . $row['price'] . "'>
+            data-price='" . htmlspecialchars($row['price']) . "'>
             Add to list
         </button>
     </div>

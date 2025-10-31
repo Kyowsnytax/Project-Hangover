@@ -11,6 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style6.css">
+
   <meta charset="utf-8">
 </head>
 
@@ -74,7 +75,7 @@
         </div>
 
         <!-- 📦 Container where search results will load -->
-        <div id="menuContainer" class="col-md-10 text-center text-muted">
+        <div id="menuContainer" class="col-md-10 text-muted">
           Loading items...
         </div>
 
@@ -119,8 +120,46 @@
     </div>
   </footer>
 
+
+
+
+<!-- Modal buy -->
+    <div id="myModalbuy" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-between align-items-center">
+                    <h4 class="modal-title" id="modalItemName">Item Name</h4>
+                    <button type="button" class="btn btn-close text-dark fw-bold fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+
+                <div class="modal-body text-center">
+                    <img id="modalItemImage" src="" alt="Item Image" class="img-fluid rounded mb-3" style="max-height: 150px;">
+                    <p id="modalItemDescription"></p>
+                    <h5 id="modalItemPrice" class="text-primary font-weight-bold"></h5>
+
+                    <label for="modalQuantity">Quantity:</label>
+                    <input type="number" id="modalQuantity" class="form-control w-50 mx-auto" value="1" min="1">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="confirmBuy">Confirm Buy</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelButton">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script src="script.js"></script>
+  <script src="modal_script.js"></script>
+
+
   <script>
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('searchInput');
