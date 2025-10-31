@@ -188,9 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchResults();
 
 
-});
-
-
 
 $(document).ready(function () {
   // Handle Buy button click
