@@ -20,28 +20,28 @@ $query = "
 
 $conditions = [];
 if (!empty($search)) {
-  $search = $conn->real_escape_string($search);
-  $conditions[] = "(item_name LIKE '%$search%' OR description LIKE '%$search%')";
+    $search = $conn->real_escape_string($search);
+    $conditions[] = "(item_name LIKE '%$search%' OR description LIKE '%$search%')";
 }
 if (!empty($category) && $category !== 'all') {
-  $category = $conn->real_escape_string($category);
-  $conditions[] = "category = '$category'";
+    $category = $conn->real_escape_string($category);
+    $conditions[] = "category = '$category'";
 }
 
 if (!empty($conditions)) {
-  $query = "SELECT * FROM ($query) AS combined WHERE " . implode(" AND ", $conditions);
+    $query = "SELECT * FROM ($query) AS combined WHERE " . implode(" AND ", $conditions);
 }
 
 $result = $conn->query($query);
 
 if (!$result) {
-  die("Query failed: " . $conn->error);
+    die("Query failed: " . $conn->error);
 }
 
 // Output HTML for each item
 
 while ($row = $result->fetch_assoc()) {
-  echo "
+    echo "
   <div class='row p-2 bg-white border rounded mb-3'>
     <div class='col-md-3 mt-1' style='width: 16rem; height: 11rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;'>
       <img src='./Images/menus/" . htmlspecialchars($row['item_name']) . ".jpg' 
@@ -55,13 +55,34 @@ while ($row = $result->fetch_assoc()) {
     </div>
 
     <div class='align-items-center align-content-center col-md-3 border-left mt-1'>
-      <div class='d-flex flex-row align-items-center'>
-        <h4 class='mr-1'><span>₱</span>" . number_format($row['price'], 2) . "</h4>
-      </div>
-      <span class='text-success'>" . ucfirst(htmlspecialchars($row['category'])) . "</span>
+        <div class='d-flex flex-row align-items-center'>
+            <h4 class='mr-1'><span>₱</span>" . number_format($row['price'], 2) . "</h4>
+        </div>
+        <div class='d-flex flex-row align-items-center'>
+            <span class='text-success' >" . ucfirst(htmlspecialchars($row['category'])) . "</span>
+        </div>
+        <div class='d-flex flex-column mt-4 hidden-buttons'>
+        <button
+            class='btn btn-primary btn-sm buybtn'
+            type='button'
+            data-bs-toggle='modal'
+            data-bs-target='#myModalbuy'
+            data-name='" . htmlspecialchars($row['item_name']) . "'
+            data-description='" . htmlspecialchars($row['description']) . "'
+            data-price='" . $row['price'] . "'>
+            Buy
+        </button>
+
+        <button
+            class='btn btn-outline-primary btn-sm mt-2 addToListBtn'
+            type='button'
+            data-name='" . htmlspecialchars($row['item_name']) . "'
+            data-price='" . $row['price'] . "'>
+            Add to list
+        </button>
     </div>
+        </div>
   </div>";
 }
 
 $conn->close();
-?>
