@@ -64,7 +64,6 @@ while ($row = $result->fetch_assoc()) {
         <div class='d-flex flex-column mt-4 hidden-buttons'>
         <button
             class='btn btn-primary btn-sm buybtn'
-            
             data-bs-toggle='modal'
             data-bs-target='#myModalbuy'
             data-name='" . htmlspecialchars($row['item_name']) . "'
