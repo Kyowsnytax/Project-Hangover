@@ -204,3 +204,52 @@
     justify-content: center;
   }
 }
+
+
+/* Custom slide-up animation for modal */
+.modal.fade .modal-dialog {
+  transform: translateY(100px);  /* start position (below center) */
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.modal.fade.show .modal-dialog {
+  transform: translateY(0);      /* end position (center) */
+  opacity: 1;
+}
+/* 🟢 Floating Action Button (FAB) */
+.fab-container {
+  position: fixed;
+  top: 90px; /* adjust to be below navbar */
+  right: 25px;
+  z-index: 1050; /* above all other elements */
+}
+
+.fab-button {
+  background-color: #0d6efd; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.fab-button:hover {
+  background-color: #0b5ed7;
+  transform: scale(1.1);
+}
+
+.order-count {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 12px;
+  padding: 4px 6px;
+}
+
