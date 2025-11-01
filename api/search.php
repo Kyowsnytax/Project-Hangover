@@ -2,12 +2,12 @@
 include 'dbconn.php';
 
 $search = $_GET['search'] ?? '';
-$category = $_GET['category'] ?? '';
+$category = $_GET['category'] ?? 'all'; // Default to 'all' if not set
 
 $query = "
   SELECT item_name, description, price, 'burger' AS category FROM burger
   UNION ALL
-  SELECT item_name, description, price, 'side Adish' AS category FROM sidedish
+  SELECT item_name, description, price, 'side dish' AS category FROM sidedish
   UNION ALL
   SELECT item_name, description, price, 'kiddie meal' AS category FROM kiddiemeal
   UNION ALL

@@ -268,7 +268,8 @@ if (!isset($_SESSION['username'])) {
       // 🔍 Function to fetch results
       function fetchMenu() {
         const search = $("#searchInput").val();
-        // const category = $("#categorySelect").val();
+        const category = $("#categorySelect").val();
+
 
         $.ajax({
           url: "./api/search.php",
