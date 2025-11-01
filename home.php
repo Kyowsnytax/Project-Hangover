@@ -50,7 +50,7 @@ session_start();
 
      <section id="home" class="main d-flex align-items-center justify-content-center" style="height: 100vh; position: relative; color: white;">
 
-    <img src="Images/loc1.png" alt="Poblacion Makati Night Scene" class="hero-bg">
+    <img src="Images/Background image for Homepage.jpg" alt="Poblacion Makati Night Scene" class="hero-bg">
     
     <div class="hero-overlay"></div>
     
