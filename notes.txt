@@ -1,0 +1,198 @@
+<script>
+$(document).ready(function() {
+  function loadMenu(searchTerm = '') {
+    $.ajax({
+      url: './api/search.php',
+      method: 'GET',
+      data: { search: searchTerm },
+      success: function(data) {
+        $('#menuContainer').html(data);
+        attachModalEvents();
+      }
+    });
+  }
+
+  function attachModalEvents() {
+    $('.buybtn').on('click', function() {
+      const name = $(this).data('name');
+      const description = $(this).data('description');
+      const price = $(this).data('price');
+      $('#modalItemName').text(name);
+      $('#modalItemDescription').text(description);
+      $('#modalItemPrice').text('₱' + price);
+    });
+  }
+
+  // Initial load
+  attachModalEvents();
+
+  // Live search
+  $('#searchInput').on('input', function() {
+    const query = $(this).val();
+    loadMenu(query);
+  });
+});
+</script>
+
+
+
+
+<?php
+include 'dbconn.php';
+
+$search = $_GET['search'] ?? '';
+$category = $_GET['category'] ?? '';
+
+$query = "
+  SELECT item_name, description, price, 'burger' AS category FROM burger
+  UNION ALL
+  SELECT item_name, description, price, 'sidedish' AS category FROM sidedish
+  UNION ALL
+  SELECT item_name, description, price, 'kiddiemeal' AS category FROM kiddiemeal
+  UNION ALL
+  SELECT item_name, description, price, 'coffee' AS category FROM coffee
+  UNION ALL
+  SELECT item_name, description, price, 'chickenwings' AS category FROM chickenwings
+  UNION ALL
+  SELECT item_name, description, price, 'shakes' AS category FROM shakes
+";
+
+$conditions = [];
+if (!empty($search)) {
+    $search = $conn->real_escape_string($search);
+    $conditions[] = "(item_name LIKE '%$search%' OR description LIKE '%$search%')";
+}
+if (!empty($category) && $category !== 'all') {
+    $category = $conn->real_escape_string($category);
+    $conditions[] = "category = '$category'";
+}
+
+if (!empty($conditions)) {
+    $query = "SELECT * FROM ($query) AS combined WHERE " . implode(" AND ", $conditions);
+}
+
+$result = $conn->query($query);
+
+if (!$result) {
+    die("Query failed: " . $conn->error);
+}
+
+// Output HTML for each item
+while ($row = $result->fetch_assoc()) {
+    echo "
+    <div class='row p-2 bg-white border rounded mb-3'>
+      <div class='col-md-3 mt-1' style='width: 16rem; height: 11rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;'>
+        <img src='./Images/menus/" . htmlspecialchars($row['item_name']) . ".jpg' 
+             alt='" . htmlspecialchars($row['item_name']) . "'
+             style='width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;' />
+      </div>
+
+      <div class='col-md-6 mt-1 align-items-left'>
+        <h4>" . htmlspecialchars($row['item_name']) . "</h4>
+        <p class='text-justify mb-0'>" . htmlspecialchars($row['description']) . "</p>
+      </div>
+
+      <div class='align-items-center align-content-center col-md-3 border-left mt-1'>
+          <div class='d-flex flex-row align-items-center'>
+              <h4 class='mr-1'><span>₱</span>" . number_format($row['price'], 2) . "</h4>
+          </div>
+          <div class='d-flex flex-row align-items-center'>
+              <span class='text-success'>" . ucfirst(htmlspecialchars($row['category'])) . "</span>
+          </div>
+          <div class='d-flex flex-column mt-4 hidden-buttons'>
+              <button
+                  class='btn btn-primary btn-sm buybtn'
+                  data-bs-toggle='modal'
+                  data-bs-target='#myModalbuy'
+                  data-name='" . htmlspecialchars($row['item_name']) . "'
+                  data-description='" . htmlspecialchars($row['description']) . "'
+                  data-price='" . htmlspecialchars($row['price']) . "'>
+                  Buy
+              </button>
+
+              <button
+                  class='btn btn-outline-primary btn-sm mt-2 addToListBtn'
+                  data-name='" . htmlspecialchars($row['item_name']) . "'
+                  data-price='" . htmlspecialchars($row['price']) . "'>
+                  Add to list
+              </button>
+          </div>
+      </div>
+    </div>";
+}
+
+$conn->close();
+?>
+
+
+
+side bar
+
+
+
+
+    const sidebar = document.getElementById('orderSidebar');
+    const ordersLink = document.getElementById('orderlink');
+    const closeBtn = document.getElementById('closeSidebar');
+
+
+    ordersLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      sidebar.classList.toggle('active');
+    });
+    
+    closeBtn.addEventListener('click', function() {
+      sidebar.classList.remove('active');
+    });
+
+$(document).ready(function() {
+  const orderList = $('#orderList');
+  const orderTotal = $('#orderTotal');
+
+  function updateTotal() {
+    let total = 0;
+    $('.order-item').each(function() {
+      const price = parseFloat($(this).data('price'));
+      const qty = parseInt($(this).find('.qty-input').val());
+      total += price * qty;
+    });
+    orderTotal.text(total.toFixed(2));
+  }
+
+  // Toggle Add/Remove on button click
+  $(document).on('click', '.addToListBtn', function() {
+    const btn = $(this);
+    const name = btn.data('name');
+    const price = parseFloat(btn.data('price'));
+
+    // If item already added
+    if (btn.hasClass('btn-success')) {
+      btn.removeClass('btn-success').addClass('btn-outline-primary');
+      $(`.order-item[data-name="${name}"]`).remove();
+      btn.text('Add to list');
+      updateTotal();
+      return;
+    }
+
+    // Change button color
+    btn.removeClass('btn-outline-primary').addClass('btn-success').text('Added to list ✓');
+
+    // Add item to sidebar
+    const orderItem = $(`
+      <div class="order-item" data-name="${name}" data-price="${price}">
+        <div>
+          <strong>${name}</strong><br>₱${price.toFixed(2)}
+        </div>
+        <input type="number" class="qty-input form-control form-control-sm" min="1" value="1">
+      </div>
+    `);
+
+    orderList.append(orderItem);
+    updateTotal();
+  });
+
+  // Update total when quantity changes
+  $(document).on('input', '.qty-input', function() {
+    updateTotal();
+  });
+});
