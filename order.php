@@ -8,21 +8,130 @@
   <title>Hang Over</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style6.css">
 
-  <meta charset="utf-8">
+  <link rel="stylesheet" href="style6.css">
+  <script  src="sidebar.js" defer></script>
+  <style>
+    /* Sidebar styling */
+    #sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      /* Hidden offscreen initially */
+      width: 300px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+      transition: right 0.3s ease;
+      z-index: 1051;
+      padding: 20px;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    #sidebar.active {
+      right: 0;
+    }
+
+    /* Overlay */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1050;
+    }
+
+    #overlay.active {
+      display: block;
+    }
+
+    /* Floating button */
+    #toggleSidebar {
+      position: fixed;
+      width: 6rem;
+      height: 6rem ;
+      bottom: 35px;
+      right: 40px;
+      z-index: 1100;
+    }
+  </style>
+
 </head>
 
 <body style="min-height:100vh; display:flex; flex-direction:column; justify-content:space-between;">
 
 
+  <!-- Overlay -->
+  <div id="overlay"></div>
 
-  <!-- floating action button -->
-  <button id="orderFab" class="btn btn-primary rounded-circle shadow-lg position-fixed"
-    style="bottom: 30px; right: 30px; width: 60px; height: 60px;">
+  <!-- Floating Button -->
+  <button id="toggleSidebar" class="btn btn-primary rounded-circle p-3">
     <i class="bi bi-cart-check fs-3"></i>
   </button>
 
+
+
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <h5>Your Orders</h5>
+      <button type="button" class="btn-close " id="closeSidebar"></button>
+    </div>
+
+    <div id="orderList" class="sidebar-content">
+    
+      <p class="text-muted">No items added yet.</p>
+    </div>
+
+    <div class="sidebar-footer border-top mt-2 pt-2 text-end">
+      Total: ₱<span id="orderTotal">0</span>
+    </div>
+    <div class="d-flex justify-content-between mt-3">
+      <button id="cancelOrders" class="btn btn-danger btn-sm w-50 me-2">Cancel</button>
+      <button id="confirmOrders" class="btn btn-success btn-sm w-50">Confirm</button>
+    </div>
+  </div>
+
+
+
+  <script>
+    
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const toggleSidebar = document.getElementById('toggleSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+
+    // Open sidebar
+    toggleSidebar.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      overlay.classList.add('active');
+      toggleSidebar.classList.add('d-none');
+    });
+
+    // Close sidebar
+    closeSidebar.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+      toggleSidebar.classList.remove('d-none');
+    });
+
+    // Close when clicking overlay
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+      toggleSidebar.classList.remove('d-none');
+    });
+  </script>
 
 
 
@@ -71,7 +180,7 @@
 
 
   <!-- this is the items -->
-  <section style="padding-top: 5rem; padding-left: 10rem;">
+  <section style="padding-top: 5rem;">
     <div class="container mt-5 mb-5">
       <div class="d-flex justify-content-center row">
 
@@ -82,10 +191,10 @@
           <select id="categorySelect" class="form-select w-auto">
             <option value="all">All Categories</option>
             <option value="burger">Burgers</option>
-            <option value="sidedish">Side Dishes</option>
-            <option value="kiddiemeal">Kids Meals</option>
+            <option value="side dish">Side Dishes</option>
+            <option value="kiddie meal">Kids Meals</option>
             <option value="coffee">Coffee</option>
-            <option value="chickenwings">Chicken Wings</option>
+            <option value="chicken wings">Chicken Wings</option>
             <option value="shakes">Shakes</option>
           </select>
         </div>
@@ -143,6 +252,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script src="script.js"></script>
 
+
+
+
   <script>
     $(document).ready(function() {
       // 🔍 Function to fetch results
@@ -154,8 +266,8 @@
           url: "./api/search.php",
           method: "get",
           data: {
-            search
-            // ,category
+            search,
+            category: $("#categorySelect").val()
           },
           beforeSend: function() {
             $("#menuContainer").html("<p class='text-center text-muted'>Loading...</p>");
@@ -251,9 +363,7 @@
 
     });
   </script>
-  <script src="sidebar.js"></script>
-
-
+  
 
 </body>
 

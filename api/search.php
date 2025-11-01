@@ -7,13 +7,13 @@ $category = $_GET['category'] ?? '';
 $query = "
   SELECT item_name, description, price, 'burger' AS category FROM burger
   UNION ALL
-  SELECT item_name, description, price, 'sidedish' AS category FROM sidedish
+  SELECT item_name, description, price, 'side Adish' AS category FROM sidedish
   UNION ALL
-  SELECT item_name, description, price, 'kiddiemeal' AS category FROM kiddiemeal
+  SELECT item_name, description, price, 'kiddie meal' AS category FROM kiddiemeal
   UNION ALL
   SELECT item_name, description, price, 'coffee' AS category FROM coffee
   UNION ALL
-  SELECT item_name, description, price, 'chickenwings' AS category FROM chickenwings
+  SELECT item_name, description, price, 'chicken wings' AS category FROM chickenwings
   UNION ALL
   SELECT item_name, description, price, 'shakes' AS category FROM shakes
 ";
@@ -66,6 +66,7 @@ while ($row = $result->fetch_assoc()) {
             class='btn btn-primary btn-sm buybtn'
             data-bs-toggle='modal'
             data-bs-target='#myModalbuy'
+            data-category='" . htmlspecialchars($row['category']) . "'
             data-name='" . htmlspecialchars($row['item_name']) . "'
             data-description='" . htmlspecialchars($row['description']) . "'
             data-price='" . htmlspecialchars($row['price']) . "'
@@ -75,7 +76,7 @@ while ($row = $result->fetch_assoc()) {
 
         <button
             class='btn btn-outline-primary btn-sm mt-2 addToListBtn'
-            
+            data-category='" . htmlspecialchars($row['category']) . "'
             data-name='" . htmlspecialchars($row['item_name']) . "'
             data-price='" . htmlspecialchars($row['price']) . "'>
             Add to list
