@@ -50,13 +50,13 @@ session_start();
 
      <section id="home" class="main d-flex align-items-center justify-content-center" style="height: 100vh; position: relative; color: white;">
 
-    <img src="Images/Cover 2.jpg" alt="Poblacion Makati Night Scene" class="hero-bg">
+    <img src="./Images/Background image for Homepage.jpg" alt="Poblacion Makati Night Scene" class="hero-bg">
     
     <div class="hero-overlay"></div>
     
     <div class="container text-center" style="position: relative; z-index: 2;">
         <h1 class="fw-bold display-4">THE OVERNIGHT HANGOUT</h1>
-        <h4 class="mb-3"><span class="typing">10 PM TILL 10 AM</span></h4>
+        <h4 class="mb-3"><span class="typing">9 PM TILL 9 AM</span></h4>
     </div>
 </section>
     
