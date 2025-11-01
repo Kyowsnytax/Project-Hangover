@@ -2,16 +2,6 @@
 session_start();
 include './api/sort.php';
 ?>
-<?php
-if (!isset($_GET['category'])) {
-    header("Location: ?category=burger");
-    exit();
-}
-
-
-$active = $_GET['category'];
-?>
-
 
 <!DOCTYPE html>
 
@@ -119,9 +109,9 @@ $active = $_GET['category'];
           <a href="?category=shakes" class="btn <?= $active == 'shakes' ? 'btn-primary' : 'btn-outline-primary' ?>">Shakes</a>
 
           <a href="?category=coffee" class="btn <?= $active == 'coffee' ? 'btn-primary' : 'btn-outline-primary' ?>">Coffee</a>
-          <a href="?category=chickenwings" class="btn <?= $active == 'chickenwings' ? 'btn-primary' : 'btn-outline-primary' ?>">Chicken Wings</a>
-          <a href="?category=sidedishes" class="btn <?= $active == 'sidedishes' ? 'btn-primary' : 'btn-outline-primary' ?>">Side Dishes</a>
-          <a href="?category=kiddiemeals" class="btn <?= $active == 'kiddiemeals' ? 'btn-primary' : 'btn-outline-primary' ?>">Kiddie Meals</a>
+          <a href="?category=chicken wings" class="btn <?= $active == 'chicken wings' ? 'btn-primary' : 'btn-outline-primary' ?>">Chicken Wings</a>
+          <a href="?category=side dish" class="btn <?= $active == 'side dish' ? 'btn-primary' : 'btn-outline-primary' ?>">Side Dish</a>
+          <a href="?category=kiddie meal" class="btn <?= $active == 'kiddie meal' ? 'btn-primary' : 'btn-outline-primary' ?>">Kiddie Meal</a>
 
         </div>
 

@@ -1,8 +1,8 @@
 <?php
 include 'dbconn.php';
 
-// Default to breakfast if nothing selected
-$category = $_GET['category'] ?? 'breakfast';
+// Default to burger if nothing selected
+$category = $_GET['category'] ?? 'burger';
 
 switch ($category) {
     case 'burger':
