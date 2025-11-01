@@ -6,9 +6,11 @@ session_start();
 if (!isset($_SESSION['username'])) {
   echo "<script>
         window.location.href = 'Login.php';
+
     </script>";
   exit();
 }
+
 
 $username = $_SESSION['username'];
 ?>
@@ -45,7 +47,7 @@ $username = $_SESSION['username'];
           <li class="nav-item"><a class="nav-link px-3" href="location.php"><i class="bi bi-geo-alt"></i> Location</a></li>
           <li class="nav-item"><a class="nav-link px-3" href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
           <li class="nav-item" id="navbarOrderLink"><a class="nav-link px-3" href="order.php" id="orderLink"><i class="bi bi-cart-check"></i> Order</a></li>
-          <li class="nav-item" id="navbarAccountLink"><a class="nav-link px-3" href="account.php"><i class="bi bi-person-circle"></i><span id="navbarAccountText">Account</span></a></li>
+          <li class="nav-item" id="navbarAccountLink"><a class="nav-link px-3" href="<?php echo isset($_SESSION['username']) ? 'account.php' : 'Login.php'; ?>"><i class="bi bi-person-circle"></i><span id="navbarAccountText"><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Account'; ?></span></a></li>
         </ul>
       </div>
     </div>
@@ -59,7 +61,7 @@ $username = $_SESSION['username'];
       <li><a href="location.php"><i class="bi bi-geo-alt"></i> Location</a></li>
       <li><a href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
       <li><a href="order.php"><i class="bi bi-cart-check"></i> Order</a></li>
-      <li><a href="account.php"><i class="bi bi-person-circle"></i> Account</a></li>
+      <li><a href="<?php echo isset($_SESSION['username']) ? 'account.php' : 'Login.php'; ?>"><i class="bi bi-person-circle"></i> <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Account'; ?></a></li>
     </ul>
   </div>
 
@@ -71,7 +73,7 @@ $username = $_SESSION['username'];
       <form id="AccountForm" class="login-form">
         <div class="input-group mb-3">
           <input type="text" id="username" name="username" placeholder="Username" class="form-control input-field" value="<?php echo htmlspecialchars($username); ?>" readonly>
-          <!-- i need the placeholder to be the name of log in account -->
+          <!--  the placeholder to be the name of log in account -->
         </div>
       </form>
        <form action="./api/logout.php" method="post">

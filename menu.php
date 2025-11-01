@@ -1,4 +1,5 @@
 <?php
+session_start();
 include './api/sort.php';
 ?>
 <?php
@@ -6,6 +7,7 @@ if (!isset($_GET['category'])) {
     header("Location: ?category=burger");
     exit();
 }
+
 
 $active = $_GET['category'];
 ?>
@@ -66,7 +68,7 @@ $active = $_GET['category'];
             <a class="nav-link px-3" href="order.php" id="orderLink"><i class="bi bi-cart-check"></i> Order</a>
           </li>
           <li class="nav-item" id="navbarAccountLink">
-            <a class="nav-link px-3" href="account.php"><i class="bi bi-person-circle"></i><span id="navbarAccountText">Account</span></a>
+            <a class="nav-link px-3" href="<?php echo isset($_SESSION['username']) ? 'account.php' : 'Login.php'; ?>"><i class="bi bi-person-circle"></i><span id="navbarAccountText"><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Account'; ?></span></a>
           </li>
         </ul>
       </div>
@@ -93,7 +95,7 @@ $active = $_GET['category'];
         <a href="order.php"><i class="bi bi-cart-check"></i> Order</a>
       </li>
       <li>
-        <a href="account.php"><i class="bi bi-person-circle"></i> Account</a>
+        <a href="<?php echo isset($_SESSION['username']) ? 'account.php' : 'Login.php'; ?>"><i class="bi bi-person-circle"></i> <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Account'; ?></a>
       </li>
     </ul>
   </div>
@@ -241,6 +243,34 @@ $active = $_GET['category'];
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
+   <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="loginToast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body fw-bold">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i> You need to log in before accessing this page.
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Add click handler to order links
+      document.querySelectorAll('a[href="order.php"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+          // Check if user is logged in
+          <?php if (!isset($_SESSION['username'])): ?>
+          e.preventDefault();
+          const toast = new bootstrap.Toast(document.getElementById('loginToast'));
+          toast.show();
+          setTimeout(() => {
+            window.location.href = 'Login.php';
+          }, 2000);
+          <?php endif; ?>
+        });
+      });
+    </script>
 </body>
 
 </html>

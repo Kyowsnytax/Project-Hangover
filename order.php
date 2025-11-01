@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header('Location: Login.php');
+    exit();
+}
+?>
 <!doctype html>
 
 <html lang="en">
@@ -154,8 +162,8 @@
           <li class="nav-item"><a class="nav-link px-3" href="location.php"><i class="bi bi-geo-alt"></i> Location</a></li>
           <li class="nav-item"><a class="nav-link px-3" href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
           <li class="nav-item"><a class="nav-link px-3" href="order.php"><i class="bi bi-cart-check"></i> Order</a></li>
-          <li class="nav-item" id="navbarAccountLink"><a class="nav-link px-3" href="account.php"><i class="bi bi-person-circle"></i><span id="navbarAccountText">Account</span></a></li>
-        </ul>
+        <li class="nav-item" id="navbarAccountLink"><a class="nav-link px-3" href="<?php echo isset($_SESSION['username']) ? 'account.php' : 'Login.php'; ?>"><i class="bi bi-person-circle"></i><span id="navbarAccountText"><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Account'; ?></span></a></li>
+           </ul>
       </div>
     </div>
   </nav>
@@ -170,7 +178,7 @@
       <li><a href="location.php"><i class="bi bi-geo-alt"></i> Location</a></li>
       <li><a href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
       <li><a href="order.php"><i class="bi bi-cart-check"></i> Order</a></li>
-      <li><a href="account.php"><i class="bi bi-person-circle"></i> Account</a></li>
+      <li><a href="<?php echo isset($_SESSION['username']) ? 'account.php' : 'Login.php'; ?>"><i class="bi bi-person-circle"></i> <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Account'; ?></a></li>
     </ul>
   </div>
 
@@ -364,6 +372,34 @@
     });
   </script>
   
+  <!-- Toast Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="loginToast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body fw-bold">
+          <i class="bi bi-exclamation-triangle-fill me-2"></i> You need to log in before accessing this page.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Add click handler to order links
+    document.querySelectorAll('a[href="order.php"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        // Check if user is logged in
+        <?php if (!isset($_SESSION['username'])): ?>
+        e.preventDefault();
+        const toast = new bootstrap.Toast(document.getElementById('loginToast'));
+        toast.show();
+        setTimeout(() => {
+          window.location.href = 'Login.php';
+        }, 2000);
+        <?php endif; ?>
+      });
+    });
+  </script>
 
 </body>
 

@@ -28,7 +28,7 @@
             <li class="nav-item"><a class="nav-link px-3" href="about.php"><i class="bi bi-truck"></i> About</a></li>
             <li class="nav-item"><a class="nav-link px-3" href="location.php"><i class="bi bi-geo-alt"></i> Location</a></li>
             <li class="nav-item"><a class="nav-link px-3" href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
-            <li class="nav-item"><a class="nav-link px-3" href="#"><i class="bi bi-cart-check"></i> Order</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="Login.php"><i class="bi bi-cart-check"></i> Order</a></li>
             <li class="nav-item" id="navbarAccountLink">
                 <a class="nav-link px-3" href="Login.php">
                     <i class="bi bi-person-circle"></i> 
@@ -47,7 +47,7 @@
         <li><a href="about.php"><i class="bi bi-truck"></i> About</a></li>
         <li><a href="location.php"><i class="bi bi-geo-alt"></i> Location</a></li>
         <li><a href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
-        <li><a href="#"><i class="bi bi-cart-check"></i> Order</a></li>
+        <li><a href="Login.php"><i class="bi bi-cart-check"></i> Order</a></li>
         <li><a href="Login.php"><i class="bi bi-person-circle"></i> Account</a></li>
       </ul>
     </div>
@@ -93,7 +93,7 @@
             <li><a href="location.php">Location</a></li>
             <li><a href="menu.php">Menu List</a></li>
             <li><a href="Login.php">Account</a></li>
-            <li><a href="#">Order Online</a></li>
+            <li><a href="Login.php">Order Online</a></li>
           </ul>
         </div>
 
