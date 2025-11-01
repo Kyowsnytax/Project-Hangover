@@ -55,8 +55,8 @@ session_start();
     <div class="hero-overlay"></div>
     
     <div class="container text-center" style="position: relative; z-index: 2;">
-        <h1 class="fw-bold display-4">THE OVERNIASDASAAGHT HANGOUT</h1>
-        <h4 class="mb-3"><span class="typing">9 PM TILL 9 AM</span></h4>
+        <h1 class="fw-bold display-4">THE OVERNIGHT HANGOUT</h1>
+        <h4 class="mb-3"><span class="typing">10 PM TILL 10 AM</span></h4>
     </div>
 </section>
     
