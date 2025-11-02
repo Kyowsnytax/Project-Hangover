@@ -67,7 +67,7 @@ $username = $_SESSION['username'];
 
 <main class="login-container d-flex justify-content-center align-items-center">
       <div id="loginContainer" class="login-box p-4 p-md-5 shadow-lg rounded-3">
-      <h1 class="login-title text-center mb-1 bi bi-person-circle text-ho-gold"> Account</h1>
+      <h1 class="login-title text-center mb-1 bi bi-person-circle text-ho-gold"> Account</h1>
 
 
       <form id="AccountForm" class="login-form">

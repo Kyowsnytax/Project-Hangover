@@ -49,7 +49,16 @@ try {
     </script>";
     exit;
 } catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
+     echo "
+    <script>
+        alert('$e');
+        window.history.back(); 
+    </script>
+    ";
+    exit    ; 
+    // echo "Error: " . $e->getMessage();
+    
+
 } finally {
     if (isset($stmt) && $stmt) $stmt->close();
     if (isset($conn) && $conn) $conn->close();
