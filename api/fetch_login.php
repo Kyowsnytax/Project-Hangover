@@ -2,7 +2,6 @@
 include 'dbconn.php';
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
 
@@ -13,9 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $result = $stmt->get_result();
 
     if ($row = $result->fetch_assoc()) {
-        // ⚠️ You said "no hashing" — so just compare directly
+       
         if ($password === $row['userpassword']) {
-            // ✅ Start session and store user info
+
             $_SESSION['user_id'] = $row['userid'];
             $_SESSION['username'] = $row['username'];
 
@@ -31,6 +30,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     $stmt->close();
-    $conn->close();
-}
+
 ?>

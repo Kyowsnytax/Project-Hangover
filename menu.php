@@ -255,7 +255,7 @@ include './api/sort.php';
           const toast = new bootstrap.Toast(document.getElementById('loginToast'));
           toast.show();
           setTimeout(() => {
-            window.location.href = 'Login.php';
+            window.location.href = '#';
           }, 2000);
           <?php endif; ?>
         });

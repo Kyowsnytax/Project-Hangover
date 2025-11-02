@@ -134,7 +134,7 @@ session_start();
       <div id="loginToast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
           <div class="toast-body fw-bold">
-            <i class="bi bi-exclamation-triangle-fill me-2"></i> You need to log in before accessing this page.
+            <i class="bi bi-exclamation-triangle-fill me-2"></i> You need to log in before accessing the Order page.
           </div>
           <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
@@ -151,7 +151,7 @@ session_start();
           const toast = new bootstrap.Toast(document.getElementById('loginToast'));
           toast.show();
           setTimeout(() => {
-            window.location.href = 'Login.php';
+            window.location.href = '#';
           }, 2000);
           <?php endif; ?>
         });
