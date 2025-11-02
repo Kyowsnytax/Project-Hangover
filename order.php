@@ -2,8 +2,8 @@
 session_start();
 
 if (!isset($_SESSION['username'])) {
-    header('Location: Login.php');
-    exit();
+  header('Location: Login.php');
+  exit();
 }
 ?>
 <!doctype html>
@@ -18,7 +18,8 @@ if (!isset($_SESSION['username'])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="style6.css">
-  <script  src="sidebar.js" defer></script>
+  <script src="sidebar.js" defer></script>
+  <script src="modal_script.js"></script>
   <style>
     /* Sidebar styling */
     #sidebar {
@@ -66,7 +67,7 @@ if (!isset($_SESSION['username'])) {
     #toggleSidebar {
       position: fixed;
       width: 6rem;
-      height: 6rem ;
+      height: 6rem;
       bottom: 35px;
       right: 40px;
       z-index: 1100;
@@ -97,7 +98,7 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <div id="orderList" class="sidebar-content">
-    
+
       <p class="text-muted">No items added yet.</p>
     </div>
 
@@ -113,7 +114,6 @@ if (!isset($_SESSION['username'])) {
 
 
   <script>
-    
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
     const toggleSidebar = document.getElementById('toggleSidebar');
@@ -162,8 +162,8 @@ if (!isset($_SESSION['username'])) {
           <li class="nav-item"><a class="nav-link px-3" href="location.php"><i class="bi bi-geo-alt"></i> Location</a></li>
           <li class="nav-item"><a class="nav-link px-3" href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
           <li class="nav-item"><a class="nav-link px-3" href="order.php"><i class="bi bi-cart-check"></i> Order</a></li>
-        <li class="nav-item" id="navbarAccountLink"><a class="nav-link px-3" href="<?php echo isset($_SESSION['username']) ? 'account.php' : 'Login.php'; ?>"><i class="bi bi-person-circle"></i><span id="navbarAccountText"><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Account'; ?></span></a></li>
-           </ul>
+          <li class="nav-item" id="navbarAccountLink"><a class="nav-link px-3" href="<?php echo isset($_SESSION['username']) ? 'account.php' : 'Login.php'; ?>"><i class="bi bi-person-circle"></i><span id="navbarAccountText"><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Account'; ?></span></a></li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -219,12 +219,6 @@ if (!isset($_SESSION['username'])) {
   </section>
   <!-- end of items -->
 
-
-
-
-
-
-
   <!-- Modal buy -->
   <div id="myModalbuy" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div div class="modal-dialog">
@@ -245,10 +239,18 @@ if (!isset($_SESSION['username'])) {
           <input type="number" id="modalQuantity" class="form-control w-50 mx-auto" value="1" min="1">
         </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" id="confirmBuy">Confirm Buy</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelButton">Cancel</button>
+        <div class="modal-footer d-flex justify-content-between align-items-center">
+          <div>
+            <span class="text-muted text-success" id="modalusername">
+              <?= htmlspecialchars($_SESSION['username']) ?>
+            </span>
+          </div>
+          <div>
+            <button type="button" class="btn btn-success" id="confirmBuy">Confirm Buy</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelButton">Cancel</button>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -296,83 +298,6 @@ if (!isset($_SESSION['username'])) {
     });
   </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const searchInput = document.getElementById('searchInput');
-      const categorySelect = document.getElementById('categorySelect');
-      const menuContainer = document.getElementById('menuContainer');
-
-      function fetchResults() {
-        const query = searchInput.value;
-        const category = categorySelect.value;
-
-        fetch(`./api/search.php?q=${encodeURIComponent(query)}&category=${encodeURIComponent(category)}`)
-          .then(res => res.text())
-          .then(html => {
-            menuContainer.innerHTML = html;
-          })
-          .catch(err => {
-            console.error(err);
-            menuContainer.innerHTML = '<p class="text-danger">Error loading results.</p>';
-          });
-      }
-
-      searchInput.addEventListener('input', fetchResults);
-      categorySelect.addEventListener('change', fetchResults);
-
-      // initial load
-      fetchResults();
-
-      // Handle Buy button click
-      $(document).on("click", ".buybtn", function() {
-        const name = $(this).data("name");
-        const description = $(this).data("description");
-        const price = $(this).data("price");
-        const image = "./Images/menus/" + name + ".jpg";
-
-        // Fill modal
-        $("#modalItemName").text(name);
-        $("#modalItemDescription").text(description);
-        $("#modalItemPrice").text("₱" + parseFloat(price).toFixed(2));
-        $("#modalItemImage").attr("src", image);
-        $("#modalQuantity").val(1);
-
-        // Update price dynamically
-        $("#modalQuantity")
-          .off("input")
-          .on("input", function() {
-            const qty = $(this).val();
-            const totalPrice = parseFloat(price) * parseInt(qty);
-            $("#modalItemPrice").text("₱" + totalPrice.toFixed(2));
-          });
-      });
-
-      // Confirm Buy
-      $("#confirmBuy").on("click", function() {
-        const modal = $("#myModalbuy");
-        const modalBody = modal.find(".modal-body");
-        const modalFooter = modal.find(".modal-footer");
-
-        const originalBody = modalBody.html();
-        modalFooter.hide();
-        modalBody.html('<h4 class="text-center text-success">Order Confirmed!</h4>');
-
-        setTimeout(() => {
-          modal.modal("hide");
-          modalBody.html(originalBody);
-          modalFooter.show();
-          location.reload();
-        }, 1500);
-      });
-
-      // Cancel Buy
-      $("#cancelButton").on("click", function() {
-        $("#myModalbuy").modal("hide");
-      });
-
-    });
-  </script>
-  
   <!-- Toast Container -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div id="loginToast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
@@ -391,12 +316,12 @@ if (!isset($_SESSION['username'])) {
       link.addEventListener('click', function(e) {
         // Check if user is logged in
         <?php if (!isset($_SESSION['username'])): ?>
-        e.preventDefault();
-        const toast = new bootstrap.Toast(document.getElementById('loginToast'));
-        toast.show();
-        setTimeout(() => {
-          window.location.href = 'Login.php';
-        }, 2000);
+          e.preventDefault();
+          const toast = new bootstrap.Toast(document.getElementById('loginToast'));
+          toast.show();
+          setTimeout(() => {
+            window.location.href = 'Login.php';
+          }, 2000);
         <?php endif; ?>
       });
     });
