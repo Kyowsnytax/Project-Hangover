@@ -21,58 +21,204 @@ if (!isset($_SESSION['username'])) {
   <script defer src="sidebar.js" ></script>
   <script src="modal_script.js "></script>
   <style>
-    /* Sidebar styling */
-    #sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      /* Hidden offscreen initially */
-      width: 300px;
-      height: 100%;
-      background-color: #fff;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-      transition: right 0.3s ease;
-      z-index: 1051;
-      padding: 20px;
-    }
 
-    .sidebar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
+/* --- Define Color Variables --- */
+:root {
+  --ho-red: #D22B2B;        
+  --ho-red-hover: #A31F1F;
+  --ho-gold: #FFC300;       
+  --ho-dark: #1A1A1A;       
+}
 
-    #sidebar.active {
-      right: 0;
-    }
+body {
+  background-image: url("./Images/loc1.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #333333; 
+}
 
-    /* Overlay */
-    #overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      display: none;
-      z-index: 1050;
-    }
+/* --- Search Bar and Category Dropdown Styling --- */
 
-    #overlay.active {
-      display: block;
-    }
+/* Targets the text input field */
+.form-control {
+    /* Set dark background */
+    background-color: var(--ho-dark) !important; 
+    
+    /* Change text to white for visibility */
+    color: white !important; 
+    
+    /* Gold border to match the neon theme */
+    border: 1px solid var(--ho-gold) !important;
+    
+    /* Ensure the focus state is also gold */
+    box-shadow: none !important;
+}
 
-    /* Floating button */
-    #toggleSidebar {
-      position: fixed;
-      width: 6rem;
-      height: 6rem;
-      bottom: 35px;
-      right: 40px;
-      z-index: 1100;
-    }
-  </style>
+/* Ensure placeholder text is visible but subtle */
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important; /* Subtle gray placeholder */
+}
+
+/* Targets the Category Dropdown (which often uses .form-select or .form-control) */
+.form-select {
+    /* Set dark background */
+    background-color: var(--ho-dark) !important;
+    
+    /* Change text to white/gold */
+    color: white !important; 
+    
+    /* Gold border to match the theme */
+    border: 1px solid var(--ho-gold) !important;
+    
+    /* Change the dropdown arrow color (Bootstrap uses a background image for this) */
+    /* This uses an SVG icon colored white/gold */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23FFC300' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") !important;
+    
+    /* Ensure the focus state is also gold */
+    box-shadow: none !important;
+}
+
+/* Focus State: Gold Glow */
+.form-control:focus, .form-select:focus {
+    /* Use the gold color for the subtle glow when active */
+    border-color: var(--ho-gold) !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 195, 0, 0.5) !important; /* Gold glow effect */
+}
+
+/* --- Menu Card Specific Styles (To Contain Content) --- */
+
+.menu-card-dark-fit {
+    /* 🛑 FIX: Define a background color so the container is visible */
+    background-color: var(--ho-dark) !important; /* Should be #1A1A1A */
+    
+    /* 🛑 FIX: Define the subtle border for the edge effect shown in Image 1 */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important; 
+    
+    /* Define rounded corners */
+    border-radius: 0.5rem; 
+    
+    /* Ensure internal padding is present (from the HTML class p-2) */
+    /* If p-2 wasn't enough, you can add more padding here: */
+    /* padding: 1rem !important; */
+    
+    /* Ensure it has a margin to separate cards */
+    /* margin-bottom: 1.5rem; */ 
+    
+    /* Remove any shadow */
+    box-shadow: none !important; 
+}
+
+/* New style for the menu card on a dark page */
+.menu-card-light {
+  background-color: white !important; /* Ensure the card is white */
+  border: 1px solid rgba(0, 0, 0, 0.1) !important; /* Optional: subtle light gray border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important; /* Optional: light shadow */
+  padding: 1.5rem !important; 
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem; /* Round the corners */
+}
+
+/* Price - Gold, high contrast */
+.item-price {
+  font-weight: bold;
+  color: var(--ho-gold) !important; /* Ensure gold color */
+}
+
+/* Category - Gold, high contrast */
+.item-category {
+  font-size: 1rem !important;
+  color: var(--ho-gold) !important; /* Ensure gold color */
+  margin-top: 0.25rem; 
+}
+
+/* --- Button Styling --- */
+
+/* Primary "Buy" button (Solid Red) */
+.custom-buy-btn {
+  background-color: var(--ho-red) !important;
+  border: 1px solid var(--ho-red) !important; 
+  color: white !important; 
+  font-weight: 600;
+  padding: 0.6rem 1.5rem; 
+  border-radius: 0.3rem; 
+  width: 100%; /* Ensure full width */
+}
+
+.custom-buy-btn:hover {
+  background-color: var(--ho-red-hover) !important;
+  border-color: var(--ho-red-hover) !important;
+}
+
+/* "Add to list" button (Outline Gold) */
+.custom-add-to-list-btn {
+  background-color: transparent !important;
+  border: 1px solid var(--ho-gold) !important; 
+  color: var(--ho-gold) !important;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.3rem;
+  width: 100%; /* Ensure full width */
+}
+
+.custom-add-to-list-btn:hover {
+  background-color: rgba(255, 195, 0, 0.1) !important; 
+  color: var(--ho-gold) !important; /* Ensure text remains gold on hover */
+}
+
+/* Sidebar styling */
+#sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  /* Hidden offscreen initially */
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 1051;
+  padding: 20px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#sidebar.active {
+  right: 0;
+}
+
+/* Overlay */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 1050;
+}
+
+#overlay.active {
+  display: block;
+}
+
+/* Floating button */
+#toggleSidebar {
+  position: fixed;
+  width: 6rem;
+  height: 6rem;
+  bottom: 35px;
+  right: 40px;
+  z-index: 1100;
+}
+</style>
 
 </head>
 

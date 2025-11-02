@@ -253,3 +253,85 @@
   padding: 4px 6px;
 }
 
+/* --- Button Styling for Dark Theme --- */
+
+/* Primary "Buy" button (Solid Red/Gold) */
+.custom-buy-btn {
+    /* Use HO-RED as the main color, Gold text for contrast */
+    background-color: var(--ho-red) !important;
+    border: 1px solid var(--ho-red) !important; 
+    color: white !important; /* White text for visibility */
+    
+    font-weight: 600;
+    padding: 0.6rem 1.5rem; /* Make the button slightly taller */
+    border-radius: 0.3rem; /* Small rounding */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.custom-buy-btn:hover {
+    background-color: var(--ho-red-hover) !important;
+    border-color: var(--ho-red-hover) !important;
+    color: white !important;
+}
+
+/* "Add to list" button (Outline Red/Gold) */
+.custom-add-to-list-btn {
+    background-color: transparent !important;
+    
+    /* Use HO-GOLD for the border and text */
+    border: 1px solid var(--ho-gold) !important; 
+    color: var(--ho-gold) !important;
+    
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.custom-add-to-list-btn:hover {
+    /* Subtle background fill on hover */
+    background-color: rgba(255, 195, 0, 0.1) !important; 
+    color: var(--ho-gold) !important;
+}
+
+/* Optional: Adjust the button container's padding/margin if needed */
+.col-md-3 .d-flex.flex-column.mt-4 {
+    padding-left: 10px; /* Give a little breathing room from the side */
+    padding-right: 10px;
+}
+
+/* Custom utility for general dark text on white background */
+.text-dark {
+    color: var(--ho-dark) !important;
+}
+.text-muted {
+    color: #6c757d !important; /* Standard Bootstrap muted text color */
+}
+
+/* New style for the menu card on a dark page */
+.menu-card-light {
+    background-color: white !important; /* Ensure the card is white */
+    border: 1px solid rgba(0, 0, 0, 0.1) !important; /* Optional: subtle light gray border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important; /* Optional: light shadow */
+    padding: 1.5rem !important; 
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem; /* Round the corners */
+}
+
+/* Price - Gold, high contrast */
+.item-price {
+    font-weight: bold;
+    color: var(--ho-gold) !important; /* Ensure gold color */
+}
+
+/* Category - Gold, high contrast */
+.item-category {
+    font-size: 1rem !important;
+    color: var(--ho-gold) !important; /* Ensure gold color */
+    margin-top: 0.25rem; 
+}
+
+
+
