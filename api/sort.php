@@ -17,10 +17,10 @@ switch ($category) {
     case 'chickenwings':
         include 'fetch_chickenwings.php';
         break;
-    case 'sidedishes':
+    case 'sidedish':
         include 'fetch_sidedishes.php';
         break;
-    case 'kiddiemeals':
+    case 'kiddiemeal':
         include 'fetch_kiddiemeals.php';
         break;
     default:

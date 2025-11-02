@@ -204,3 +204,85 @@
     justify-content: center;
   }
 }
+
+body {
+  background-image: url("./Images/loc1.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #333333; 
+}
+
+.menu-card-dark-fit {
+  background-color: rgba(0, 0, 0, 0.7); 
+  color: white; 
+  border-color: rgba(255, 255, 255, 0.2) !important; 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.menu-card-dark-fit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+}
+.menu-card-dark-fit h5, 
+.menu-card-dark-fit p, 
+.menu-card-dark-fit h4 {
+  color: white !important;
+}
+.menu-card-dark-fit .text-success {
+  color: var(--ho-gold) !important; 
+  font-weight: 600;
+}
+/* --------------------------------------------------------------------------------------------------- */
+/* ===== MENU CATEGORY BUTTON STYLES (IMPROVED READABILITY) ===== */
+/* --------------------------------------------------------------------------------------------------- */
+
+/* Base style for all category buttons */
+.container.d-flex.justify-content-center.mb-5.gap-4 .btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px; /* Pill shape for a modern look */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Subtle lift */
+}
+
+/* 1. Inactive/Outline Button Style (btn-outline-primary) */
+.btn-outline-primary {
+    /* Use dark background with subtle border for inactive buttons */
+    background-color: var(--ho-dark) !important;
+    color: var(--ho-light) !important; /* Readable light gray text */
+    border: 2px solid var(--ho-gold) !important; /* Gold border to match theme */
+}
+
+.btn-outline-primary:hover {
+    /* Hover state: Gold background, dark text */
+    background-color: var(--ho-gold) !important;
+    color: var(--ho-dark) !important; /* Dark text on bright gold is highly readable */
+    border-color: var(--ho-gold) !important;
+    box-shadow: 0 6px 15px rgba(255, 195, 0, 0.5); /* Glowing effect on hover */
+}
+
+/* 2. Active/Selected Button Style (btn-primary) */
+.btn-primary {
+    /* Active state: Use primary theme color (RED) */
+    background-color: var(--ho-red) !important;
+    border-color: var(--ho-red) !important;
+    color: var(--ho-light) !important; /* White text on red */
+    /* Add a subtle shadow for the active state */
+    box-shadow: 0 4px 10px rgba(210, 43, 43, 0.6); 
+}
+
+/* Active button hover/focus state */
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:hover {
+    /* Darker red on hover/focus */
+    background-color: var(--ho-red-hover) !important;
+    border-color: var(--ho-red-hover) !important;
+    color: white !important;
+    box-shadow: 0 6px 15px rgba(210, 43, 43, 0.8);
+}

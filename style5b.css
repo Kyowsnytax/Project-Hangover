@@ -1,0 +1,371 @@
+/* ===== 🎨 HANGOVER COLOR PALETTE ===== */
+
+:root {
+  --ho-red: #D22B2B;        
+  --ho-red-hover: #A31F1F;
+  --ho-gold: #FFC300;       
+  --ho-dark: #1A1A1A;       
+  --ho-light: #F5F5F5;      
+}
+
+/* Custom Utility Class for Gold Text */
+.text-ho-gold {
+  color: var(--ho-gold) !important;
+}
+
+/* --- Global Positioning (CRITICAL FIXES FOR BACKGROUND/FOOTER) --- */
+html, body {
+    height: 100%; /* Ensure full height */
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== Background Image Styles ===== */
+.hero-bg {
+  position: fixed; /* Fixed position so it covers the whole viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the whole area without distortion */
+  z-index: -1; /* Puts the image behind all other content */
+  filter: brightness(40%) contrast(110%); /* Adjusted: Dimmer and slightly more contrast for background */
+}
+
+/* --- Navigation Styles --- */
+#navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 2.5rem; 
+  width: 95%;
+  max-width: 1400px;
+  transition: all 0.4s ease;
+}
+
+/* Navbar when scrolling (SNAPPED & ROUNDED RECTANGULAR) */
+#navbar.scrolled {
+  top: 0;
+  left: 0;
+  transform: none;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  padding: 0.75rem 2.5rem; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Brand text */
+#navbar .navbar-brand {
+  font-size: 2rem; 
+  color: var(--ho-red);
+  letter-spacing: 2px;
+  font-weight: 700; 
+}
+
+/* Links (desktop) */
+#navbar .nav-link {
+  font-weight: 600; 
+  color: var(--ho-dark); 
+  padding: 0.5rem 1.3rem; 
+  transition: color 0.3s ease, background-color 0.3s ease;
+  display: flex; 
+  align-items: center;
+  gap: 0.4rem; 
+}
+
+#navbar .nav-link:hover {
+  color: var(--ho-red);
+  background-color: rgba(var(--ho-red), 0.05); 
+  border-radius: 5px;
+}
+
+#navbar .nav-link i { 
+    font-size: 1.1rem;
+}
+
+
+/* ===== Mobile Menu Overlay (Retained) ===== */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.98); 
+  backdrop-filter: blur(10px); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+  z-index: 2000;
+}
+
+.mobile-nav-links a {
+  font-size: 1.6rem; 
+  font-weight: 700; 
+  color: var(--ho-dark); 
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem; 
+  transition: color 0.3s;
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+}
+
+.mobile-nav-links li {
+  margin: 1.2rem 0; 
+}
+
+.mobile-nav-links a:hover {
+  color: var(--ho-red);
+}
+
+.close-btn {
+  position: absolute;
+  top: 25px; 
+  right: 35px; 
+  font-size: 2.5rem; 
+  background: none;
+  border: none;
+  color: var(--ho-dark); 
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  #menuToggle {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------------------------------- */
+/* ===== Login Page Specific Styles (IMPROVED CENTERING AND SPACING) ===== */
+/* --------------------------------------------------------------------------------------------------- */
+.login-container {
+  /* CRUCIAL: Ensures the container takes up at least the full viewport height. 
+     This forces vertical scrolling, allowing the fixed background image to be fully visible. */
+  min-height: 100vh; 
+  
+  /* PUSHES CONTENT DOWN: Creates space below the fixed navbar */
+  padding-top: 150px; 
+  
+  /* CRUCIAL FOR CENTERING: Sets up flex layout */
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center; /* Vertical center */
+  
+  padding-bottom: 50px; /* Add bottom padding to separate from the footer */
+  padding-left: 20px;
+  padding-right: 20px;
+  background: none; 
+}
+
+.login-box {
+  background-color: rgba(26, 26, 26, 0.9); 
+  padding: 3rem 3.5rem; 
+  border-radius: 12px; 
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6); 
+  max-width: 450px; 
+  width: 100%; 
+  
+  /* Reset conflicting margins for vertical centering */
+  margin-top: 0 !important; 
+  margin-bottom: 0 !important;
+}
+
+.login-title {
+  font-size: 2.5rem; 
+  color: var(--ho-gold); 
+  margin-bottom: 0.5rem !important; 
+  letter-spacing: 1px;
+  font-weight: 800; 
+  text-shadow: 0 0 10px rgba(255, 195, 0, 0.4); 
+}
+
+.account-question-btn {
+    color: var(--ho-light); 
+    font-size: 1rem;
+    /* Use !important to ensure this Bootstrap spacing is overridden if needed */
+    margin-bottom: 2.5rem !important; 
+    padding: 0.5rem 0; 
+    transition: color 0.3s ease;
+}
+
+.account-question-btn small {
+    display: inline-block;
+    padding: 0.3rem 0;
+}
+
+.account-question-btn:hover {
+    color: var(--ho-red);
+}
+
+.account-question-btn b {
+    color: var(--ho-gold); 
+    text-decoration: underline;
+}
+
+.input-field {
+  background-color: rgba(255, 255, 255, 0.9); 
+  border: 1px solid rgba(255, 195, 0, 0.5); 
+  color: var(--ho-dark); 
+  padding: 0.75rem 1rem; 
+  border-radius: 8px; 
+}
+
+.input-field::placeholder {
+  color: rgba(26, 26, 26, 0.6); 
+}
+
+.input-field[readonly] {
+    background-color: var(--ho-light); 
+    color: var(--ho-dark); 
+    font-weight: 700; 
+}
+
+.password-toggle {
+  color: var(--ho-dark); 
+  cursor: pointer;
+  padding: 0.5rem; 
+}
+
+.sign-in-button {
+  background-color: var(--ho-red); 
+  border-color: var(--ho-red); 
+  color: var(--ho-light); 
+  padding: 0.8rem 1.5rem; 
+  font-size: 1.2rem;
+  /* Ensure the button uses the correct color and style despite Bootstrap's .btn-primary */
+  font-weight: 700 !important; 
+  border-radius: 8px; 
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Fix for the blue button on the account page */
+.login-box .btn-primary {
+    background-color: var(--ho-red);
+    border-color: var(--ho-red);
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+.login-box .btn-primary:hover {
+    background-color: var(--ho-red-hover);
+    border-color: var(--ho-red-hover);
+}
+
+.sign-in-button:hover {
+  background-color: var(--ho-red-hover); 
+  border-color: var(--ho-red-hover);
+  color: var(--ho-light);
+}
+
+/* --- Footer Styles (Retained) --- */
+#footer {
+  background-color: var(--ho-dark);
+  color: var(--ho-light);
+  padding: 60px 20px 30px;
+  font-family: Arial, sans-serif;
+  position: relative; 
+  z-index: 10; 
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  width: 150px;
+  height: auto;
+}
+
+.footer-section h5 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--ho-gold); 
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  color: var(--ho-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: var(--ho-red);
+}
+
+.social-links li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links li a:hover {
+  color: var(--ho-red);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-logo-container {
+    margin-bottom: 20px;
+  }
+
+  .social-links li a {
+    justify-content: center;
+  }
+  
+  /* Adjust login box on small screens */
+  .login-box {
+      padding: 2rem;
+  }
+  .login-title {
+      font-size: 2rem;
+  }
+}

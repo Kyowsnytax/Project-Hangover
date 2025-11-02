@@ -109,18 +109,18 @@ include './api/sort.php';
           <a href="?category=shakes" class="btn <?= $active == 'shakes' ? 'btn-primary' : 'btn-outline-primary' ?>">Shakes</a>
 
           <a href="?category=coffee" class="btn <?= $active == 'coffee' ? 'btn-primary' : 'btn-outline-primary' ?>">Coffee</a>
-          <a href="?category=chicken wings" class="btn <?= $active == 'chicken wings' ? 'btn-primary' : 'btn-outline-primary' ?>">Chicken Wings</a>
-          <a href="?category=side dish" class="btn <?= $active == 'side dish' ? 'btn-primary' : 'btn-outline-primary' ?>">Side Dish</a>
-          <a href="?category=kiddie meal" class="btn <?= $active == 'kiddie meal' ? 'btn-primary' : 'btn-outline-primary' ?>">Kiddie Meal</a>
+          <a href="?category=chickenwings" class="btn <?= $active == 'chickenwings' ? 'btn-primary' : 'btn-outline-primary' ?>">Chicken Wings</a>
+          <a href="?category=sidedish" class="btn <?= $active == 'side dish' ? 'btn-primary' : 'btn-outline-primary' ?>">Side Dish</a>
+          <a href="?category=kiddiemeal" class="btn <?= $active == 'kiddiemeal' ? 'btn-primary' : 'btn-outline-primary' ?>">Kiddie Meal</a>
 
         </div>
 
-
+  
 
 
         <div class="col-md-10">
           <?php while ($row = $result->fetch_assoc()) { ?>
-            <div class="row p-2 bg-white border rounded mb-3">
+            <div class="row p-2 border rounded mb-3 menu-card-dark-fit">
               
               <div class="col-md-3 mt-1"
                 style="width: 16rem; height: 11rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;">
