@@ -373,7 +373,7 @@ body {
   <div id="myModalbuy" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div  class="modal-dialog">
       <!-- Modal content-->
-      <div class="modal-content">
+      <di class="modal-content">
         <div class="modal-header d-flex justify-content-between align-items-center">
           <h4 class="modal-title" id="modalItemName">Item Name</h4>
           <button type="button" class="btn btn-close text-dark fw-bold fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -389,16 +389,14 @@ body {
           <input type="number" id="modalQuantity" class="form-control w-50 mx-auto" value="1" min="1">
         </div>
 
-        <div class="modal-footer d-flex justify-content-between align-items-center">
-          <div>
-            <span class="text-muted text-success" id="modalusername">
+        <div class="modal-footer d-flex  align-items-center">
+        
+            <span class="d-none" id="modalusername">
               <?= htmlspecialchars($_SESSION['username']) ?>
             </span>
-          </div>
-          <div>
             <button type="button" class="btn btn-success" id="confirmBuy">Confirm Buy</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelButton">Cancel</button>
-          </div>
+          
         </div>
 
       </div>
