@@ -227,7 +227,7 @@ if (!isset($_SESSION['username'])) {
 
   <!-- Modal buy -->
   <div id="myModalbuy" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
+    <div div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header d-flex justify-content-between align-items-center">
