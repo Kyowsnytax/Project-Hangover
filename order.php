@@ -304,14 +304,7 @@ if (!isset($_SESSION['username'])) {
 
   <!-- Toast Container -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="loginToast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body fw-bold">
-          <i class="bi bi-exclamation-triangle-fill me-2"></i> You need to log in before accessing this page.
-        </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-    </div>
+
      <div id="orderSuccessToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="d-flex">
       <div class="toast-body fw-bold">
@@ -324,23 +317,7 @@ if (!isset($_SESSION['username'])) {
 
   </div>
 
-   
-  <script>
-    // Add click handler to order links
-    document.querySelectorAll('a[href="order.php"]').forEach(link => {
-      link.addEventListener('click', function(e) {
-        // Check if user is logged in
-        <?php if (!isset($_SESSION['username'])): ?>
-          e.preventDefault();
-          const toast = new bootstrap.Toast(document.getElementById('loginToast'));
-          toast.show();
-          setTimeout(() => {
-            window.location.href = 'Login.php';
-          }, 2000);
-        <?php endif; ?>
-      });
-    });
-  </script>
+
 
 </body>
 
