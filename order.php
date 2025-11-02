@@ -18,8 +18,8 @@ if (!isset($_SESSION['username'])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="style6.css">
-  <script src="sidebar.js" defer></script>
-  <script src="modal_script.js"></script>
+  <script defer src="sidebar.js" ></script>
+  <script src="modal_script.js "></script>
   <style>
     /* Sidebar styling */
     #sidebar {
@@ -100,21 +100,25 @@ if (!isset($_SESSION['username'])) {
     <div id="orderList" class="sidebar-content">
 
       <p class="text-muted">No items added yet.</p>
+      
     </div>
 
     <div class="sidebar-footer border-top mt-2 pt-2 text-end">
       Total: ₱<span id="orderTotal">0</span>
     </div>
+    <span id="sidebarUsername" class="text-info"><?= htmlspecialchars($_SESSION['username']) ?></span>
     <div class="d-flex justify-content-between mt-3">
       <button id="cancelOrders" class="btn btn-danger btn-sm w-50 me-2">Cancel</button>
+
       <button id="confirmOrders" class="btn btn-success btn-sm w-50">Confirm</button>
     </div>
   </div>
 
 
 
-  <script>
-    const sidebar = document.getElementById('sidebar');
+<script>
+  //WAG NA WAG MONG TATANGALIN TONG SCRIPT NATO HINDI MA TOGGLE-TOGGLE YUNG FLOATING BUTTON PAG WALA ITO DINE YAWA AHAHHA
+  const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
     const toggleSidebar = document.getElementById('toggleSidebar');
     const closeSidebar = document.getElementById('closeSidebar');
@@ -139,9 +143,9 @@ if (!isset($_SESSION['username'])) {
       overlay.classList.remove('active');
       toggleSidebar.classList.remove('d-none');
     });
-  </script>
 
 
+</script>
 
 
   <!-- NavBar -->
@@ -221,7 +225,7 @@ if (!isset($_SESSION['username'])) {
 
   <!-- Modal buy -->
   <div id="myModalbuy" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div div class="modal-dialog">
+    <div  class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header d-flex justify-content-between align-items-center">
@@ -308,8 +312,19 @@ if (!isset($_SESSION['username'])) {
         <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
     </div>
+     <div id="orderSuccessToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body fw-bold">
+        <i class="bi bi-check-circle-fill me-2"></i> All orders have been recorded successfully!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
   </div>
 
+   
   <script>
     // Add click handler to order links
     document.querySelectorAll('a[href="order.php"]').forEach(link => {
