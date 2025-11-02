@@ -39,6 +39,8 @@ body {
   background-color: #333333; 
 }
 
+
+
 /* --- Search Bar and Category Dropdown Styling --- */
 
 /* Targets the text input field */
@@ -169,54 +171,112 @@ body {
 
 /* Sidebar styling */
 #sidebar {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  /* Hidden offscreen initially */
-  width: 300px;
-  height: 100%;
-  background-color: #fff;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-  transition: right 0.3s ease;
-  z-index: 1051;
-  padding: 20px;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    
+    /* ⚡ THEME: Dark background */
+    background-color: var(--ho-dark); /* #1A1A1A */
+    color: var(--ho-light); 
+    
+    /* ⚡ THEME: Neon-like shadow with gold edge */
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.7), -1px 0 0 var(--ho-gold);
+    
+    transition: right 0.3s ease;
+    z-index: 1051;
+    padding: 20px;
+    
+    /* Enables scrolling list while keeping header/footer fixed */
+    display: flex;
+    flex-direction: column; 
 }
 
 .sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    /* ⚡ THEME: Gold header text */
+    color: var(--ho-gold); 
+}
+
+/* Make the close button white/light on the dark background */
+.sidebar-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); 
+}
+
+/* Scrollable Content Area */
+#orderList {
+    flex-grow: 1; 
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    padding-right: 5px; 
+}
+
+/* Sidebar Footer (Total area) */
+.sidebar-footer {
+    padding-top: 1rem !important;
+    margin-top: auto !important; 
+    /* ⚡ THEME: Gold border and Gold text */
+    border-top: 2px solid var(--ho-gold) !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--ho-gold);
+}
+
+/* Total Amount Number */
+#orderTotal {
+    color: var(--ho-red); /* Use Red to highlight the final amount */
+    margin-left: 0.5rem;
+}
+
+/* Username */
+#sidebarUsername {
+    color: var(--ho-red) !important; 
+    font-style: italic;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 5px;
 }
 
 #sidebar.active {
-  right: 0;
+    right: 0;
 }
 
 /* Overlay */
 #overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  z-index: 1050;
-}
-
-#overlay.active {
-  display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Darker overlay for better focus */
+    display: none;
+    z-index: 1050;
 }
 
 /* Floating button */
 #toggleSidebar {
-  position: fixed;
-  width: 6rem;
-  height: 6rem;
-  bottom: 35px;
-  right: 40px;
-  z-index: 1100;
+    position: fixed;
+    width: 4rem; /* Adjusted size */
+    height: 4rem;
+    bottom: 35px;
+    right: 40px;
+    z-index: 1100;
+    
+    /* ⚡ THEME: Red button with Gold neon glow */
+    background-color: var(--ho-red) !important;
+    border: 3px solid var(--ho-gold) !important;
+    box-shadow: 0 0 10px var(--ho-gold), 0 0 20px var(--ho-red) !important; 
+    transition: all 0.3s ease;
+}
+
+#toggleSidebar:hover {
+    background-color: var(--ho-red-hover) !important;
+    border-color: var(--ho-gold) !important;
+    transform: scale(1.05);
 }
 </style>
 
@@ -229,9 +289,9 @@ body {
   <div id="overlay"></div>
 
   <!-- Floating Button -->
-  <button id="toggleSidebar" class="btn btn-primary rounded-circle p-3">
-    <i class="bi bi-cart-check fs-3"></i>
-  </button>
+  <button id="toggleSidebar" class="btn btn-primary rounded-circle p-3 d-flex align-items-center justify-content-center">
+    <i class="bi bi-cart-check fs-3"></i>
+  </button>
 
 
 

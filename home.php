@@ -66,7 +66,7 @@ session_start();
         <p class="lead">CRAVE IT. GET IT. RECOVER.</p>
       </div>
 
-      <div id="menucarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="hover">
+      <div id="menucarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000"  data-bs-pause="false"    >
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#menucarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#menucarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>

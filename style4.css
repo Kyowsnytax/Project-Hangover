@@ -215,13 +215,26 @@ body {
 }
 
 .menu-card-dark-fit {
-    /* Use 0.98 for near-solid black, just letting a tiny bit of background through */
-    background-color: rgba(0, 0, 0, 0.98) !important;
-    color: white;
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
+    /* 🛑 FIX: Define a background color so the container is visible */
+    background-color: var(--ho-dark) !important; /* Should be #1A1A1A */
+    
+    /* 🛑 FIX: Define the subtle border for the edge effect shown in Image 1 */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important; 
+    
+    /* Define rounded corners */
+    border-radius: 0.5rem; 
+    
+    /* Ensure internal padding is present (from the HTML class p-2) */
+    /* If p-2 wasn't enough, you can add more padding here: */
+    /* padding: 1rem !important; */
+    
+    /* Ensure it has a margin to separate cards */
+    /* margin-bottom: 1.5rem; */ 
+    
+    /* Remove any shadow */
+    box-shadow: none !important; 
 }
+
 
 .menu-card-dark-fit:hover {
   transform: translateY(-2px);
