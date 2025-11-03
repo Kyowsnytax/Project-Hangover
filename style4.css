@@ -365,7 +365,13 @@ html, body {
   .menu-card-dark-fit .col-md-6 {
     width: 45% !important;
   }
-  .menu-card-dark-fit .col-md-3.price-category-info {
-    width: 20% !important;
+  .menu-card-dark-fit .col-md-3.price-category-info .d-flex.price{
+    display: block !important;
   }
 }
+@media (max-width: 450px) { 
+  .menu-card-dark-fit .col-md-3.price-category-info .d-flex.price{
+    display: block !important;
+  }
+}
+

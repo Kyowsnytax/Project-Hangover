@@ -141,7 +141,7 @@ include './api/sort.php';
               </div>
               <div
                 class="col-md-3 border-left mt-5 price-category-info">
-                <div class="d-flex flex-row align-items-center  ">
+                <div class="d-flex flex-row align-items-center price">
                   <h4 id="price" class="mr-1">
                     <span>₱</span><?= number_format($row['price'], 2) ?>
                   </h4>
