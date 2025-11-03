@@ -234,6 +234,10 @@ body {
     /* Remove any shadow */
     box-shadow: none !important; 
 }
+.menu-card-dark-fit {
+  overflow: hidden;
+}
+
 
 
 .menu-card-dark-fit:hover {

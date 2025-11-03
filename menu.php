@@ -115,46 +115,31 @@ include './api/sort.php';
 
         </div>
 
-  
+
 
 
         <div class="col-md-10">
           <?php while ($row = $result->fetch_assoc()) { ?>
-            <div class="row p-2 border rounded mb-3 menu-card-dark-fit">
-              
-              <div class="col-md-3 mt-1"
-                style="width: 16rem; height: 11rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;">
-                <img
-                  src="./Images/menus/<?= htmlspecialchars($row['item_name']) ?>.jpg"
+            <div class="d-flex align-items-center justify-content-between p-2 border rounded mb-3 menu-card-dark-fit">
+
+              <div style="width: 16rem; height: 11rem; overflow: hidden; border-radius: 0.5rem;">
+                <img src="./Images/menus/<?= htmlspecialchars($row['item_name']) ?>.jpg"
                   alt="<?= htmlspecialchars($row['item_name']) ?>"
-                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;" />
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;">
               </div>
 
-              <div class="col-md-6 mt-1">
-                <h5 id="product-name">
-                  <?= htmlspecialchars($row['item_name']) ?>
-                </h5>
-
-                <p id="information" class="text-justify mb-0">
-                  <?= htmlspecialchars($row['description']) ?>
-                </p>
+              <div class="flex-grow-1 px-3">
+                <h5><?= htmlspecialchars($row['item_name']) ?></h5>
+                <p class="mb-0"><?= htmlspecialchars($row['description']) ?></p>
               </div>
-              <div
-                class="col-md-3 border-left mt-5 price-category-info">
-                <div class="d-flex flex-row align-items-center price">
-                  <h4 id="price" class="mr-1">
-                    <span>₱</span><?= number_format($row['price'], 2) ?>
-                  </h4>
-                </div>
-                <span class="text-success">
-                  <?= ucfirst(htmlspecialchars($category)) ?>
-                </span>
-
-                <!-- the buttons are here -->
-
-                
+              <div class="d-flex flex-column justify-content-center align-items-end pe-5">
+                <h4 class="mb-1">₱<?= number_format($row['price'], 2) ?></h4>
+                <span class="text-success"><?= ucfirst(htmlspecialchars($category)) ?></span>
               </div>
+
+
             </div>
+
           <?php } ?>
         </div>
       </div>
@@ -233,34 +218,34 @@ include './api/sort.php';
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
-   <!-- Toast Container -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-      <div id="loginToast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-          <div class="toast-body fw-bold">
-            <i class="bi bi-exclamation-triangle-fill me-2"></i> You need to log in before accessing this page.
-          </div>
-          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+  <!-- Toast Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="loginToast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body fw-bold">
+          <i class="bi bi-exclamation-triangle-fill me-2"></i> You need to log in before accessing this page.
         </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
     </div>
+  </div>
 
-    <script>
-      // Add click handler to order links
-      document.querySelectorAll('a[href="order.php"]').forEach(link => {
-        link.addEventListener('click', function(e) {
-          // Check if user is logged in
-          <?php if (!isset($_SESSION['username'])): ?>
+  <script>
+    // Add click handler to order links
+    document.querySelectorAll('a[href="order.php"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        // Check if user is logged in
+        <?php if (!isset($_SESSION['username'])): ?>
           e.preventDefault();
           const toast = new bootstrap.Toast(document.getElementById('loginToast'));
           toast.show();
           setTimeout(() => {
             window.location.href = '#';
           }, 2000);
-          <?php endif; ?>
-        });
+        <?php endif; ?>
       });
-    </script>
+    });
+  </script>
 </body>
 
 </html>
