@@ -317,7 +317,7 @@ body {
     </div>
     <span id="sidebarUsername" class="text-info">Account: <?= htmlspecialchars($_SESSION['username']) ?></span>
     <div class="d-flex justify-content-between mt-3">
-      <button id="cancelOrders" class="btn btn-danger btn-sm w-50 me-2">Cancel</button>
+      <button id="cancelOrders" class="btn btn-danger btn-sm w-50 me-2">Remove All</button>
 
       <button id="confirmOrders" class="btn btn-success btn-sm w-50">Confirm</button>
     </div>
