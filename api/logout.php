@@ -8,6 +8,6 @@ $_SESSION = [];
 session_destroy();
 
 // Redirect to login page (or home)
-echo "<script>window.location.href = '../Login.php';</script>";
+header("Location: ../home.php");
 exit();
 ?>
