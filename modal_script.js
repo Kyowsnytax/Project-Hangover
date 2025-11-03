@@ -77,13 +77,14 @@
         const modalFooter = modal.find(".modal-footer");
 
         const originalBody = modalBody.html();
-        modalFooter.hide();
+        modalFooter.addClass("d-none");
         modalBody.html('<h4 class="text-center text-success">Order Confirmed!</h4>');
 
         setTimeout(() => {
           modal.modal("hide");
+            modalFooter.removeClass("d-none");
           modalBody.html(originalBody);
-          modalFooter.hide();
+          
           location.reload();
         }, 1500);
       });

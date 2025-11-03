@@ -3,6 +3,7 @@ $(document).ready(function () {
   const orderTotal = $("#orderTotal");
   const placeholderText = $(".placeholder-text");
 
+
   function updateTotal() {
     let total = 0;
     $(".order-item").each(function () {
@@ -15,10 +16,13 @@ $(document).ready(function () {
     // Toggle placeholder visibility
     if ($(".order-item").length === 0) {
       placeholderText.show();
+    
     } else {
       placeholderText.hide();
+      
     }
   }
+  
 
   // Add/Remove item to/from list
   $(document).on("click", ".addToListBtn", function () {
@@ -34,6 +38,8 @@ $(document).ready(function () {
         .text("Add to list");
       $(`.order-item[data-name="${name}"]`).remove();
       updateTotal();
+
+  
       return;
     }
 
@@ -58,6 +64,7 @@ $(document).ready(function () {
 
     orderList.append(orderItem);
     updateTotal();
+   
   });
 
   // Update total on quantity change

@@ -256,6 +256,9 @@ body {
     display: none;
     z-index: 1050;
 }
+#overlay.active{
+  display: block;
+}
 
 /* Floating button */
 #toggleSidebar {
@@ -305,14 +308,14 @@ body {
 
     <div id="orderList" class="sidebar-content">
 
-      <p class="text-muted">No items added yet.</p>
+      <p class="text-muted placeholder-text">No Items Added yet!</p>
       
     </div>
 
     <div class="sidebar-footer border-top mt-2 pt-2 text-end">
       Total: ₱<span id="orderTotal">0</span>
     </div>
-    <span id="sidebarUsername" class="text-info"><?= htmlspecialchars($_SESSION['username']) ?></span>
+    <span id="sidebarUsername" class="text-info">Account: <?= htmlspecialchars($_SESSION['username']) ?></span>
     <div class="d-flex justify-content-between mt-3">
       <button id="cancelOrders" class="btn btn-danger btn-sm w-50 me-2">Cancel</button>
 
@@ -433,7 +436,7 @@ body {
   <div id="myModalbuy" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div  class="modal-dialog">
       <!-- Modal content-->
-      <di class="modal-content">
+      <div class="modal-content">
         <div class="modal-header d-flex justify-content-between align-items-center">
           <h4 class="modal-title" id="modalItemName">Item Name</h4>
           <button type="button" class="btn btn-close text-dark fw-bold fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
