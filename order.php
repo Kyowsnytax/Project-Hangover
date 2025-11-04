@@ -315,7 +315,7 @@ body {
     <div class="sidebar-footer border-top mt-2 pt-2 text-end">
       Total: ₱<span id="orderTotal">0</span>
     </div>
-    <span>Account: </span><span id="sidebarUsername" class="text-info"><?= htmlspecialchars($_SESSION['username']) ?></span>
+    <span class="fst-italic fs-6">Account: </span><span id="sidebarUsername" class="text-info fs-6"><?= htmlspecialchars($_SESSION['username']) ?></span>
     <div class="d-flex justify-content-between mt-3">
       <button id="cancelOrders" class="btn btn-danger btn-sm w-50 me-2">Remove All</button>
 
