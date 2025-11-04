@@ -100,7 +100,7 @@ include './api/sort.php';
       <div class="d-flex justify-content-center row">
 
 
-        <!-- create a 3 button here breakfast lunch and dinner -->
+        <!--  category-->
 
         <?php $active = $_GET['category'] ?? 'burger'; ?>
         <div class="container d-flex justify-content-center mb-5 gap-4">

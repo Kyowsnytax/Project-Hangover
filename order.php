@@ -19,7 +19,7 @@ if (!isset($_SESSION['username'])) {
 
   <link rel="stylesheet" href="style6.css">
   <script defer src="sidebar.js" ></script>
-  <script src="modal_script.js "></script>
+  <script defer src="modal_script.js "></script>
   <style>
 
 /* --- Define Color Variables --- */
@@ -315,7 +315,7 @@ body {
     <div class="sidebar-footer border-top mt-2 pt-2 text-end">
       Total: ₱<span id="orderTotal">0</span>
     </div>
-    <span id="sidebarUsername" class="text-info">Account: <?= htmlspecialchars($_SESSION['username']) ?></span>
+    <span>Account: </span><span id="sidebarUsername" class="text-info"><?= htmlspecialchars($_SESSION['username']) ?></span>
     <div class="d-flex justify-content-between mt-3">
       <button id="cancelOrders" class="btn btn-danger btn-sm w-50 me-2">Remove All</button>
 
@@ -421,11 +421,8 @@ body {
         </div>
 
         <!-- 📦 Container where search results will load -->
-        <div id="menuContainer" class="col-md-10 text-muted">
+        <div id="menuContainer" class="col-md-10 text-muted"></div>
 
-          <?php include './api/search.php'; ?>
-          Loading items...
-        </div>
 
       </div>
     </div>

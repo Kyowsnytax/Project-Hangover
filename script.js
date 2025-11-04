@@ -33,34 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    
-
-    // // --- TOAST HELPER FUNCTION (TIMER REMOVED) ---
-    // function showLoginToastAndRedirect() {
-    //     const loginToastElement = document.getElementById('loginToast');
-        
-    //     // 1. Show the toast
-    //     if (loginToastElement && window.bootstrap && window.bootstrap.Toast) {
-    //         const toast = new bootstrap.Toast(loginToastElement);
-    //         toast.show();
-    //     }
-        
-    //     // 2. Check if redirection is needed
-    //     const currentPath = window.location.pathname.split('/').pop();
-        
-    //     // Target page is account.php. If we are ALREADY there, do nothing after the toast.
-    //     if (currentPath === 'account.php' || currentPath === 'register.php') {
-    //          // Do not redirect, just let the toast disappear
-    //          return; 
-    //     }
-
-    //     // 3. Immediate redirection (TIMER REMOVED)
-    //     // Note: The toast may close itself before the user sees the page switch.
-    //     window.location.href = 'account.php';
-    // }
-
-
-  
 })
 document.addEventListener("DOMContentLoaded", () => {
   // Select all toggle icons on the page
