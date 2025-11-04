@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 
 ?>
 
@@ -152,16 +150,6 @@ session_start();
       </div>
     </footer>
 
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="loginToast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-            <div class="toast-body fw-bold">
-                <i class="bi bi-exclamation-triangle-fill me-2"></i> You need to log in before accessing this page.
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-    </div>
-</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="script.js"></script>
@@ -188,7 +176,7 @@ session_start();
           const toast = new bootstrap.Toast(document.getElementById('loginToast'));
           toast.show();
           setTimeout(() => {
-            window.location.href = 'Login.php';
+            window.location.href = '#';
           }, 2000);
           <?php endif; ?>
         });

@@ -2,7 +2,7 @@
 
 session_start();
 
-// If user not logged in, redirect or show message
+// If user  logged in, redirect or show message
 if (isset($_SESSION['username'])) {
   echo "<script>
         window.location.href = 'account.php';

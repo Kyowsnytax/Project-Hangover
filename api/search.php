@@ -14,7 +14,7 @@ $query = "
   SELECT item_name, description, price, 'coffee' AS category FROM coffee
   UNION ALL
   SELECT item_name, description, price, 'chicken wings' AS category FROM chickenwings
-  UNION ALL
+  UNION ALL 
   SELECT item_name, description, price, 'shakes' AS category FROM shakes
 ";
 
@@ -45,7 +45,7 @@ while ($row = $result->fetch_assoc()) {
     <div class='row p-2 mb-3 menu-card-dark-fit align-items-start'>
         <div class='col-md-3 mt-1' style='width: 16rem; height: 11rem; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;'>
             <img src='./Images/menus/" . htmlspecialchars($row['item_name']) . ".jpg' 
-                alt='" . htmlspecialchars($row['item_name']) . "'
+                alt='" . htmlspecialchars($row['item_name']) . "'z
                 style='width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;' />
         </div>
 
