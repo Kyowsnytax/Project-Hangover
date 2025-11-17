@@ -57,6 +57,7 @@ session_start();
     <div class="container text-center" style="position: relative; z-index: 2;">
         <h1 class="fw-bold display-4">THE OVERNIGHT HANGOUT</h1>
         <h4 class="mb-3"><span class="typing">9 PM TILL 9 AM</span></h4>
+        <p class="alert alert-warning" role="alert">"This website is intended for educational purposes only and not for commercial use."</p>
     </div>
 </section>
     
