@@ -13,4 +13,4 @@ catch(mysqli_sql_exception $e){
     echo "Connection failed: " . $e->getMessage();
 }   
 
-$conn->query("SET time_zone = '+08:00'")
+$conn->query("SET time_zone = '+08:00'");
