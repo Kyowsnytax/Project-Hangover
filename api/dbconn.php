@@ -1,9 +1,9 @@
 <?php
 
 $_servername = "localhost";
-$_username = "u817157843_hangover";
-$_password = "hangoverqwer1";
-$dbname = 'u817157843_hangover_db';
+$_username = "root";
+$_password = "";
+$dbname = 'hangover_menulist';
 
 try{
     $conn = mysqli_connect($_servername, $_username, $_password, $dbname);
