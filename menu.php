@@ -11,6 +11,8 @@ include './api/sort.php';
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hang Over</title>
+   <link rel="icon" type="image/png" href="Images/iconimage.png">
+
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
     rel="stylesheet"
