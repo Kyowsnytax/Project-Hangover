@@ -27,7 +27,7 @@ include './api/sort.php';
     id="navbar"
     class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4 py-2">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold ms-3" href="#">HANG OVER</a>
+      <a class="navbar-brand fw-bold ms-3" href="home.php">HANG OVER</a>
 
       <button
         class="navbar-toggler"
