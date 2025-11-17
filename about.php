@@ -22,7 +22,7 @@ session_start();
   <body>
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4 py-2">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold ms-3" href="home.php">HANG OVER</a>
+        <a class="navbar-brand fw-bold ms-3" href="index.php">HANG OVER</a>
 
         <button class="navbar-toggler" id="menuToggle" type="button" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@ session_start();
 
         <div class="collapse navbar-collapse justify-content-end d-none d-lg-block" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link px-3" href="home.php"><i class="bi bi-house-door"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="index.php"><i class="bi bi-house-door"></i> Home</a></li>
             <li class="nav-item"><a class="nav-link px-3" href="about.php"><i class="bi bi-truck"></i> About</a></li>
             <li class="nav-item"><a class="nav-link px-3" href="location.php"><i class="bi bi-geo-alt"></i> Location</a></li>
             <li class="nav-item"><a class="nav-link px-3" href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
@@ -44,7 +44,7 @@ session_start();
     <div id="mobileMenu" class="mobile-menu">
       <button class="close-btn" id="closeMenu">&times;</button>
       <ul class="mobile-nav-links list-unstyled text-center">
-        <li><a href="home.php"><i class="bi bi-house-door"></i> Home</a></li>
+        <li><a href="index.php"><i class="bi bi-house-door"></i> Home</a></li>
         <li><a href="about.php"><i class="bi bi-truck"></i> About</a></li>
         <li><a href="location.php"><i class="bi bi-geo-alt"></i> Location</a></li>
         <li><a href="menu.php"><i class="bi bi-egg-fried"></i> Menu</a></li>
@@ -126,7 +126,7 @@ session_start();
         <div class="footer-section menu-section">
           <h5>MENU</h5>
           <ul>
-            <li><a href="home.php">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="location.php">Location</a></li>
             <li><a href="menu.php">Menu List</a></li>
